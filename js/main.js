@@ -288,18 +288,15 @@
       btn.disabled        = true;
       btnSpan.textContent = '…';
 
-      // Sérialise tous les champs en JSON
-      const payload = {};
-      new FormData(form).forEach((val, key) => { payload[key] = val; });
+      // URLSearchParams = requête "simple" CORS, aucun preflight bloquant
+      const params = new URLSearchParams();
+      new FormData(form).forEach((val, key) => params.append(key, val));
 
       try {
         const res = await fetch(FORMSPARK, {
           method:  'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept':       'application/json',
-          },
-          body: JSON.stringify(payload),
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body:    params.toString(),
         });
 
         if (res.ok) {
