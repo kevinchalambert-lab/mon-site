@@ -467,7 +467,14 @@
         </div>
       </div>
 
-      <form id="form" class="contact-form reveal" novalidate>
+      <!-- ══ Formspark ── collez votre Form ID à la place de VOTRE_FORM_ID ══════
+           Récupérez-le sur : https://app.formspark.io → votre formulaire → Settings
+      ════════════════════════════════════════════════════════════════════════════ -->
+      <form id="form" class="contact-form reveal"
+            action="https://submit-api.formspark.io/f/VOTRE_FORM_ID"
+            novalidate>
+        <!-- Honeypot anti-spam — ne pas supprimer -->
+        <input type="text" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off" />
         <div class="f-row">
           <div class="f-g">
             <label data-i18n="f.first">Prénom</label>

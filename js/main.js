@@ -261,26 +261,75 @@
   });
 
   /* ══════════════════════════════════════════════
-     FORM SUBMIT
+     FORM SUBMIT — Formspark
+     Endpoint : form.action (défini dans index.html)
+     Remplacez VOTRE_FORM_ID dans index.html pour activer l'envoi réel.
   ══════════════════════════════════════════════ */
   const form = document.getElementById('form');
   if (form) {
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', async e => {
       e.preventDefault();
+
       const btn     = form.querySelector('.f-btn');
       const btnSpan = btn ? btn.querySelector('span') : null;
       if (!btn || !btnSpan) return;
 
-      btnSpan.textContent  = 'Message envoyé ✓';
-      btn.style.opacity    = '.5';
-      btn.disabled         = true;
+      // Validation basique — prénom + email obligatoires
+      const prenomEl = form.querySelector('[name="prenom"]');
+      const emailEl  = form.querySelector('[name="email"]');
+      if (!prenomEl?.value.trim() || !emailEl?.value.trim()) {
+        btn.style.transition = 'opacity .25s';
+        btn.style.opacity    = '.35';
+        setTimeout(() => { btn.style.opacity = ''; }, 400);
+        return;
+      }
 
-      setTimeout(() => {
-        btnSpan.textContent = 'Envoyer';
-        btn.style.opacity   = '';
+      // Détecte si le Form ID a bien été renseigné
+      const formId = form.action.split('/').pop();
+      if (!formId || formId === 'VOTRE_FORM_ID') {
+        console.warn('Formspark : remplacez VOTRE_FORM_ID dans index.html par votre vrai Form ID.');
+        btnSpan.textContent = currentLang === 'en' ? 'Message sent ✓' : 'Message envoyé ✓';
+        btn.style.opacity   = '.5';
+        btn.disabled        = true;
+        setTimeout(() => {
+          btnSpan.textContent = currentLang === 'en' ? 'Send' : 'Envoyer';
+          btn.style.opacity   = '';
+          btn.disabled        = false;
+          form.reset();
+        }, 4500);
+        return;
+      }
+
+      // Envoi réel vers Formspark
+      btn.disabled        = true;
+      btnSpan.textContent = '…';
+
+      try {
+        const res = await fetch(form.action, {
+          method:  'POST',
+          headers: { Accept: 'application/json' },
+          body:    new FormData(form),
+        });
+
+        if (res.ok) {
+          btnSpan.textContent = currentLang === 'en' ? 'Message sent ✓' : 'Message envoyé ✓';
+          btn.style.opacity   = '.5';
+          setTimeout(() => {
+            btnSpan.textContent = currentLang === 'en' ? 'Send' : 'Envoyer';
+            btn.style.opacity   = '';
+            btn.disabled        = false;
+            form.reset();
+          }, 4500);
+        } else {
+          throw new Error('Formspark response error');
+        }
+      } catch {
+        btnSpan.textContent = currentLang === 'en' ? 'Error — please retry' : 'Erreur — réessayez';
         btn.disabled        = false;
-        form.reset();
-      }, 4500);
+        setTimeout(() => {
+          btnSpan.textContent = currentLang === 'en' ? 'Send' : 'Envoyer';
+        }, 3500);
+      }
     });
   }
 
