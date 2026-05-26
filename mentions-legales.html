@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentions Légales — Maison Chalambert</title>
+  <meta name="robots" content="noindex, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .legal-page {
+      padding: 160px 0 100px;
+      min-height: 80vh;
+    }
+    .legal-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .legal-kicker {
+      font-family: 'Jost', sans-serif;
+      font-size: .68rem;
+      font-weight: 300;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(245,240,230,.45);
+      display: block;
+      margin-bottom: 20px;
+    }
+    .legal-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 300;
+      color: #f5f0e6;
+      margin: 0 0 56px;
+      line-height: 1.15;
+    }
+    .legal-section {
+      margin-bottom: 44px;
+      border-top: 1px solid rgba(245,240,230,.08);
+      padding-top: 36px;
+    }
+    .legal-section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+    .legal-section h2 {
+      font-family: 'Jost', sans-serif;
+      font-size: .7rem;
+      font-weight: 400;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(245,240,230,.5);
+      margin: 0 0 18px;
+    }
+    .legal-section p,
+    .legal-section address {
+      font-family: 'Jost', sans-serif;
+      font-size: .88rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: rgba(245,240,230,.72);
+      font-style: normal;
+      margin: 0 0 10px;
+    }
+    .legal-section a {
+      color: rgba(245,240,230,.72);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color .3s;
+    }
+    .legal-section a:hover {
+      color: #f5f0e6;
+    }
+    .legal-placeholder {
+      background: rgba(245,240,230,.06);
+      border: 1px dashed rgba(245,240,230,.2);
+      border-radius: 3px;
+      padding: 0 6px;
+      font-style: italic;
+      color: rgba(245,240,230,.45);
+      font-size: .82rem;
+    }
+    @media (max-width: 600px) {
+      .legal-inner { padding: 0 24px; }
+      .legal-page { padding: 130px 0 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAVIGATION ════════════════════════════ -->
+  <header id="nav" class="solid">
+    <div class="nav-left">
+      <a href="index.html#univers" class="n-link">Nos Univers</a>
+      <a href="index.html#maison" class="n-link">La Maison</a>
+    </div>
+    <a href="index.html" class="n-logo">MAISON CHALAMBERT</a>
+    <div class="nav-right">
+      <a href="index.html#galerie" class="n-link">Galerie</a>
+      <a href="index.html#contact" class="n-cta">Demande Privée</a>
+    </div>
+    <a href="index.html" class="n-logo-mobile">MAISON CHALAMBERT</a>
+    <button id="burger" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <div id="nav-overlay">
+    <a href="index.html#univers" class="no-link">Nos Univers</a>
+    <a href="index.html#maison" class="no-link">La Maison</a>
+    <a href="index.html#galerie" class="no-link">Galerie</a>
+    <a href="index.html#contact" class="no-link">Contact</a>
+  </div>
+
+  <!-- ══ CONTENU ══════════════════════════════ -->
+  <main class="legal-page">
+    <div class="legal-inner">
+
+      <span class="legal-kicker">Informations légales</span>
+      <h1 class="legal-title">Mentions Légales</h1>
+
+      <div class="legal-section">
+        <h2>Éditeur du site</h2>
+        <address>
+          <strong style="color:#f5f0e6;font-style:normal;">Maison Chalambert</strong><br />
+          Forme juridique : <span class="legal-placeholder">[SAS / SARL / Auto-entrepreneur — à compléter]</span><br />
+          Siège social : <span class="legal-placeholder">[Adresse complète — à compléter]</span><br />
+          SIRET : <span class="legal-placeholder">[Numéro SIRET — à compléter]</span><br />
+          Directeur de la publication : Kevin Chalambert<br />
+          Contact : <a href="mailto:contact@maisonchalambert.com">contact@maisonchalambert.com</a>
+        </address>
+      </div>
+
+      <div class="legal-section">
+        <h2>Hébergement</h2>
+        <address>
+          Le site <strong style="color:#f5f0e6;font-style:normal;">maisonchalambert.com</strong> est hébergé par :<br />
+          <span class="legal-placeholder">[Nom de l'hébergeur — ex. OVH, GitHub Pages, Vercel, etc.]</span><br />
+          <span class="legal-placeholder">[Adresse de l'hébergeur]</span><br />
+          <span class="legal-placeholder">[Site web de l'hébergeur]</span>
+        </address>
+      </div>
+
+      <div class="legal-section">
+        <h2>Propriété intellectuelle</h2>
+        <p>
+          L'ensemble des contenus présents sur ce site (textes, photographies, visuels, logos, architecture du site) est la propriété exclusive de Maison Chalambert ou de ses partenaires, et est protégé par les dispositions du Code de la propriété intellectuelle.
+        </p>
+        <p>
+          Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans l'autorisation écrite préalable de Maison Chalambert.
+        </p>
+      </div>
+
+      <div class="legal-section">
+        <h2>Photographies</h2>
+        <p>
+          Certaines photographies utilisées sur ce site sont issues de banques d'images libres de droits (Pexels). D'autres sont la propriété de Maison Chalambert. Toute utilisation sans autorisation est interdite.
+        </p>
+      </div>
+
+      <div class="legal-section">
+        <h2>Limitation de responsabilité</h2>
+        <p>
+          Maison Chalambert s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur ce site. Toutefois, Maison Chalambert ne peut garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition sur ce site.
+        </p>
+        <p>
+          Maison Chalambert se réserve le droit de modifier, à tout moment et sans préavis, les informations contenues sur ce site. En conséquence, Maison Chalambert ne saurait être tenu responsable de tout dommage direct ou indirect résultant de l'utilisation de ce site.
+        </p>
+      </div>
+
+      <div class="legal-section">
+        <h2>Liens hypertextes</h2>
+        <p>
+          Ce site peut contenir des liens vers d'autres sites internet. Maison Chalambert n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu. L'existence d'un lien ne constitue pas une validation de ce site ou de son contenu.
+        </p>
+      </div>
+
+      <div class="legal-section">
+        <h2>Droit applicable</h2>
+        <p>
+          Le présent site et les présentes mentions légales sont soumis au droit français. En cas de litige, les tribunaux français seront seuls compétents.
+        </p>
+        <p>
+          Conformément à la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN).
+        </p>
+      </div>
+
+      <div class="legal-section">
+        <h2>Contact</h2>
+        <p>
+          Pour toute question relative aux présentes mentions légales, vous pouvez nous contacter à l'adresse suivante :<br />
+          <a href="mailto:contact@maisonchalambert.com">contact@maisonchalambert.com</a>
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ══ FOOTER ═══════════════════════════════ -->
+  <footer id="footer">
+    <div class="ft-marquee-wrap">
+      <div class="ft-marquee">
+        <span>RIEN N'EST TROP EXCEPTIONNEL &nbsp;·&nbsp; </span>
+        <span>RIEN N'EST TROP EXCEPTIONNEL &nbsp;·&nbsp; </span>
+        <span>RIEN N'EST TROP EXCEPTIONNEL &nbsp;·&nbsp; </span>
+        <span>RIEN N'EST TROP EXCEPTIONNEL &nbsp;·&nbsp; </span>
+        <span>RIEN N'EST TROP EXCEPTIONNEL &nbsp;·&nbsp; </span>
+        <span>RIEN N'EST TROP EXCEPTIONNEL &nbsp;·&nbsp; </span>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span class="ft-name">MAISON CHALAMBERT</span>
+      <span class="ft-cats">Événements · Tables · Lifestyle · Voyages</span>
+      <div class="ft-links">
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="confidentialite.html">Confidentialité</a>
+        <a href="mailto:contact@maisonchalambert.com">Contact</a>
+      </div>
+      <span class="ft-copy">&copy; 2026</span>
+    </div>
+  </footer>
+
+  <script>
+    // Burger menu minimal pour les pages légales
+    const burger = document.getElementById('burger');
+    const overlay = document.getElementById('nav-overlay');
+    if (burger && overlay) {
+      burger.addEventListener('click', () => {
+        burger.classList.toggle('open');
+        overlay.classList.toggle('open');
+      });
+      overlay.querySelectorAll('.no-link').forEach(l => {
+        l.addEventListener('click', () => {
+          burger.classList.remove('open');
+          overlay.classList.remove('open');
+        });
+      });
+    }
+  </script>
+</body>
+</html>
