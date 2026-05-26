@@ -300,15 +300,24 @@
         return;
       }
 
-      // Envoi réel vers Formspark
+      // Envoi réel vers Formspark — format JSON requis par l'API submit-form.com
       btn.disabled        = true;
       btnSpan.textContent = '…';
 
       try {
+        // Convertit les champs du formulaire en objet JSON (sans le honeypot)
+        const payload = {};
+        new FormData(form).forEach((val, key) => {
+          if (key !== '_honeypot') payload[key] = val;
+        });
+
         const res = await fetch(form.action, {
           method:  'POST',
-          headers: { Accept: 'application/json' },
-          body:    new FormData(form),
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept':       'application/json',
+          },
+          body: JSON.stringify(payload),
         });
 
         if (res.ok) {
@@ -321,7 +330,7 @@
             form.reset();
           }, 4500);
         } else {
-          throw new Error('Formspark response error');
+          throw new Error('Formspark error ' + res.status);
         }
       } catch {
         btnSpan.textContent = currentLang === 'en' ? 'Error — please retry' : 'Erreur — réessayez';
