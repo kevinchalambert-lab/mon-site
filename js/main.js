@@ -261,10 +261,69 @@
   });
 
   /* ══════════════════════════════════════════════
-     FORM SUBMIT — soumission HTML native vers Formspark
-     action="https://submit-form.com/17WH4ev1n" method="POST"
-     Aucun JS n'intercepte : le navigateur envoie directement.
+     FORM SUBMIT — AJAX vers Formspark (sans redirection)
+     Envoi en arrière-plan, le client reste sur la page.
   ══════════════════════════════════════════════ */
+  const FORMSPARK = 'https://submit-form.com/form_v1_h3NaQ59z5lmbsAL2vtlnTSrv';
+
+  const form = document.getElementById('form');
+  if (form) {
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+
+      const btn     = form.querySelector('.f-btn');
+      const btnSpan = btn ? btn.querySelector('span') : null;
+      if (!btn || !btnSpan) return;
+
+      // Validation — prénom + email requis
+      const prenom = form.querySelector('[name="prenom"]')?.value.trim();
+      const email  = form.querySelector('[name="email"]')?.value.trim();
+      if (!prenom || !email) {
+        btn.style.transition = 'opacity .25s';
+        btn.style.opacity    = '.35';
+        setTimeout(() => { btn.style.opacity = ''; }, 500);
+        return;
+      }
+
+      btn.disabled        = true;
+      btnSpan.textContent = '…';
+
+      // Sérialise tous les champs en JSON
+      const payload = {};
+      new FormData(form).forEach((val, key) => { payload[key] = val; });
+
+      try {
+        const res = await fetch(FORMSPARK, {
+          method:  'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept':       'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        if (res.ok) {
+          btnSpan.textContent = currentLang === 'en' ? 'Message sent ✓' : 'Message envoyé ✓';
+          btn.style.opacity   = '.55';
+          form.reset();
+          setTimeout(() => {
+            btnSpan.textContent = currentLang === 'en' ? 'Send' : 'Envoyer';
+            btn.style.opacity   = '';
+            btn.disabled        = false;
+          }, 5000);
+        } else {
+          throw new Error('HTTP ' + res.status);
+        }
+      } catch (err) {
+        console.error('Formspark :', err);
+        btnSpan.textContent = currentLang === 'en' ? 'Error — please retry' : 'Erreur — réessayez';
+        btn.disabled        = false;
+        setTimeout(() => {
+          btnSpan.textContent = currentLang === 'en' ? 'Send' : 'Envoyer';
+        }, 3500);
+      }
+    });
+  }
 
   /* ══════════════════════════════════════════════
      EXPERIENCES — parallax lerp (ultra-fluide)
