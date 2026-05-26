@@ -1207,3 +1207,48 @@ input, textarea, select { font-family: var(--sans); }
   .st-text { font-size: clamp(1.85rem, 7.5vw, 2.8rem); }
   #hero { padding: 0 22px 48px; }
 }
+
+/* ══════════════════════════════════════════════
+   WHATSAPP FLOTTANT — discret & luxe
+══════════════════════════════════════════════ */
+.wa-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(10, 9, 8, .88);
+  border: 1px solid rgba(245, 240, 230, .18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f5f0e6;
+  text-decoration: none;
+  transition: background .3s ease, border-color .3s ease, transform .3s ease, box-shadow .3s ease;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, .35);
+}
+
+.wa-float:hover {
+  background: rgba(30, 28, 26, .96);
+  border-color: rgba(245, 240, 230, .38);
+  transform: scale(1.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, .5);
+}
+
+.wa-float svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .wa-float {
+    bottom: 20px;
+    right: 18px;
+    width: 44px;
+    height: 44px;
+  }
+}
