@@ -1,0 +1,31 @@
+# Vidéos locales (le site charge les vidéos depuis Pexels, pas besoin de les versionner)
+assets/*.mp4
+assets/*.mov
+assets/*.webm
+
+# Config interne Claude Code
+.claude/
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (au cas où)
+node_modules/
+npm-debug.log*
+
+# Env
+.env
+.env.local

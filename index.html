@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="fr" id="html-root">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maison Chalambert</title>
+  <meta name="description" content="Conciergerie de prestige — Événements privés, tables d'exception, lifestyle & voyages sur-mesure pour une clientèle HNWI." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ══ PRELOADER ══════════════════════════════ -->
+  <div id="preloader">
+    <span class="pl-logo">MAISON CHALAMBERT</span>
+  </div>
+
+  <!-- ══ NAVIGATION ════════════════════════════ -->
+  <header id="nav">
+    <!-- Desktop -->
+    <div class="nav-left">
+      <a href="#univers" class="n-link" data-i18n="nav.univers">Nos Univers</a>
+      <a href="#maison" class="n-link" data-i18n="nav.maison">La Maison</a>
+    </div>
+    <a href="#hero" class="n-logo">MAISON CHALAMBERT</a>
+    <div class="nav-right">
+      <a href="#galerie" class="n-link" data-i18n="nav.galerie">Galerie</a>
+      <div class="lang-sw">
+        <button class="ls-btn active" data-set-lang="fr">FR</button>
+        <span class="ls-sep">|</span>
+        <button class="ls-btn" data-set-lang="en">EN</button>
+      </div>
+      <a href="#contact" class="n-cta" data-i18n="nav.cta">Demande Privée</a>
+    </div>
+    <!-- Mobile -->
+    <a href="#hero" class="n-logo-mobile">MAISON CHALAMBERT</a>
+    <button id="burger" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <div id="nav-overlay">
+    <a href="#univers"  class="no-link">Nos Univers</a>
+    <a href="#maison"   class="no-link">La Maison</a>
+    <a href="#galerie"  class="no-link">Galerie</a>
+    <a href="#contact"  class="no-link">Contact</a>
+  </div>
+
+  <!-- ══ 01 · HERO ══════════════════════════════
+    Vidéo reel : sizzle (yacht · diner · volcans)
+    + vidéos locales en complément
+    Layout : bottom-left — comme Paris Society
+  ══════════════════════════════════════════════ -->
+  <section id="hero">
+
+    <div class="hero-reel">
+      <!-- V1 : Superyacht Méditerranée 60fps -->
+      <video class="reel-v active" autoplay muted loop playsinline preload="auto">
+        <source src="https://videos.pexels.com/video-files/37524012/15898412_2560_1440_60fps.mp4" type="video/mp4" />
+      </video>
+      <!-- V2 : Plage tropicale parasols -->
+      <video class="reel-v" muted loop playsinline preload="metadata">
+        <source src="https://videos.pexels.com/video-files/28457482/12389673_2560_1440_30fps.mp4" type="video/mp4" />
+      </video>
+      <!-- V3 : Fashion Week défilé -->
+      <video class="reel-v" muted loop playsinline preload="metadata">
+        <source src="https://videos.pexels.com/video-files/9511838/9511838-uhd_2732_1440_25fps.mp4" type="video/mp4" />
+      </video>
+      <!-- V4 : Île paradisiaque — Maldives bungalows drone UHD -->
+      <video class="reel-v" muted loop playsinline preload="metadata">
+        <source src="https://videos.pexels.com/video-files/8356776/8356776-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+      </video>
+      <!-- V5 : Montagne silhouette coucher de soleil -->
+      <video class="reel-v" muted loop playsinline preload="metadata">
+        <source src="https://videos.pexels.com/video-files/1722697/1722697-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-veil"></div>
+    </div>
+
+    <!-- Texte bottom-left — Paris Society style -->
+    <div class="hero-bl">
+      <h1 class="hero-title">
+        <span class="ht-line" data-i18n="hero.l1">L'Art de</span>
+        <span class="ht-line ht-italic" data-i18n="hero.l2">l'Inaccessible</span>
+      </h1>
+      <a href="#univers" class="hero-cta">
+        <span data-i18n="hero.cta">En savoir plus</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Scroll -->
+    <div class="hero-scroll-hint">
+      <span class="scroll-bar"></span>
+      <span class="scroll-txt">Scroll</span>
+    </div>
+
+  </section>
+
+  <!-- ══ 02 · STATEMENT ════════════════════════ -->
+  <section id="statement">
+    <div class="st-inner">
+      <p class="st-label reveal">— Maison Chalambert</p>
+      <h2 class="st-main reveal" data-i18n="st.main">
+        Aucun dîner n'est trop privé, aucun lieu trop confidentiel,
+        aucun spectacle trop rare, aucune escapade trop exclusive.
+      </h2>
+      <div class="st-divider reveal"></div>
+      <p class="st-body reveal" data-i18n="st.body1">
+        Notre ambition : créer des expériences uniques, surprendre,
+        émerveiller, faire vibrer vos sens et transformer chaque instant
+        en souvenir mémorable.
+      </p>
+      <p class="st-body reveal" data-i18n="st.body2">
+        Notre promesse : éveiller vos émotions, vous offrir l'inattendu
+        et vous donner envie de toujours revenir pour de nouvelles expériences.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══ 03 · NOS UNIVERS ══════════════════════ -->
+  <section id="univers">
+    <div class="univers-header">
+      <p class="u-label reveal" data-i18n="u.label">— Nos Univers</p>
+    </div>
+
+    <div class="univers-panels">
+
+      <!-- 01 · Événements Privés -->
+      <div class="u-panel">
+        <div class="u-img">
+          <img src="assets/images/evenement-costes.jpg" alt="Événements Privés" loading="lazy" />
+        </div>
+        <div class="u-body">
+          <span class="u-num">01</span>
+          <div class="u-content">
+            <h3 data-i18n-html="u1.title">Événements<br />Privés</h3>
+            <p data-i18n="u1.desc">Dîners de prestige, soirées de gala, anniversaires confidentiels. Des célébrations pensées comme des mises en scène intimes, dans des lieux que vous serez les seuls à connaître.</p>
+            <a href="#contact" class="u-link" data-i18n="u.link">Nous consulter →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 · Tables d'Exception -->
+      <div class="u-panel">
+        <div class="u-img">
+          <img src="assets/images/table-lac.jpg" alt="Tables d'Exception" loading="lazy" />
+        </div>
+        <div class="u-body">
+          <span class="u-num">02</span>
+          <div class="u-content">
+            <h3 data-i18n-html="u2.title">Tables<br />d'Exception</h3>
+            <p data-i18n="u2.desc">Des adresses confidentielles aux dîners impossibles à réserver. Notre réseau ouvre les portes des meilleures tables au monde — ce soir.</p>
+            <a href="#contact" class="u-link" data-i18n="u.link">Nous consulter →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 · Lifestyle -->
+      <div class="u-panel">
+        <div class="u-img">
+          <img src="assets/images/ferrari-dinner.jpg" alt="Lifestyle" loading="lazy" />
+        </div>
+        <div class="u-body">
+          <span class="u-num">03</span>
+          <div class="u-content">
+            <h3 data-i18n="u3.title">Lifestyle</h3>
+            <p data-i18n="u3.desc">Accès Fashion Week, Grand Prix de Monaco, Festival de Cannes, vernissages privés, premières exclusives. Les coulisses du monde vous appartiennent.</p>
+            <a href="#contact" class="u-link" data-i18n="u.link">Nous consulter →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 · Voyages -->
+      <div class="u-panel">
+        <div class="u-img">
+          <img src="https://images.pexels.com/photos/7902905/pexels-photo-7902905.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Voyages" loading="lazy" />
+        </div>
+        <div class="u-body">
+          <span class="u-num">04</span>
+          <div class="u-content">
+            <h3 data-i18n-html="u4.title">Voyages<br />Sur-Mesure</h3>
+            <p data-i18n="u4.desc">Villas privées, yachts, jets privés, safaris en lodge exclusif. Des itinéraires dessinés pour votre seule signature, dans des destinations choisies pour leur âme.</p>
+            <a href="#contact" class="u-link" data-i18n="u.link">Nous consulter →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ 04 · ÉDITORIAL PLEIN ÉCRAN ════════════ -->
+  <section id="editorial">
+    <div class="ed-img">
+      <!-- Drop your HD photo here as assets/images/editorial.jpg -->
+      <img
+        src="assets/images/evenement-costes.jpg"
+        alt="Maison Chalambert"
+        loading="lazy"
+      />
+      <div class="ed-veil"></div>
+    </div>
+    <div class="ed-caption">
+      <div class="ed-line reveal"></div>
+      <blockquote class="ed-quote reveal" data-i18n-html="ed.quote">
+        "Il existe des portes que d'autres<br />
+        n'ont jamais su frapper."
+      </blockquote>
+      <p class="ed-by reveal">— Maison Chalambert</p>
+    </div>
+  </section>
+
+  <!-- ══ 05 · LA MAISON ════════════════════════ -->
+  <section id="maison">
+    <div class="maison-inner">
+
+      <div class="maison-header">
+        <p class="m-label reveal" data-i18n="m.label">— La Maison</p>
+        <h2 class="m-title reveal" data-i18n-html="m.title">
+          L'Art de<br /><em>l'Hospitalité</em>
+        </h2>
+        <p class="m-intro reveal" data-i18n="m.intro">
+          Passionnés et entourés des meilleurs dans chaque univers.
+          Une vision où chaque détail compte, où l'élégance rencontre
+          l'audace — pour vous offrir bien plus qu'une expérience : une émotion.
+        </p>
+      </div>
+
+      <div class="piliers">
+
+        <article class="pilier reveal" style="--d:0ms">
+          <div class="pilier-top"><span class="pilier-n">I</span><div class="pilier-bar"></div></div>
+          <h3 data-i18n="p1.title">Personnalisation</h3>
+          <p data-i18n="p1.desc">Parce que vous êtes unique, chaque expérience est dessinée sur-mesure. Nous écoutons vos silences et anticipons vos désirs pour façonner un moment qui ne ressemble qu'à vous.</p>
+        </article>
+
+        <article class="pilier reveal" style="--d:120ms">
+          <div class="pilier-top"><span class="pilier-n">II</span><div class="pilier-bar"></div></div>
+          <h3 data-i18n="p2.title">Inaccessible</h3>
+          <p data-i18n="p2.desc">Poussez les portes qui restent closes aux autres. Tables confidentielles, lieux secrets, privatisations impossibles : notre carnet d'adresses est votre passeport pour l'exception.</p>
+        </article>
+
+        <article class="pilier reveal" style="--d:240ms">
+          <div class="pilier-top"><span class="pilier-n">III</span><div class="pilier-bar"></div></div>
+          <h3 data-i18n="p3.title">Orchestration</h3>
+          <p data-i18n="p3.desc">Laissez-vous porter. De la première inspiration à la dernière seconde, nous orchestrons tout dans l'ombre. Profitez de l'instant — nous maîtrisons le temps pour vous.</p>
+        </article>
+
+        <article class="pilier reveal" style="--d:360ms">
+          <div class="pilier-top"><span class="pilier-n">IV</span><div class="pilier-bar"></div></div>
+          <h3 data-i18n="p4.title">Émotion</h3>
+          <p data-i18n="p4.desc">Qu'il s'agisse d'une évasion au bout du monde ou d'un dîner privé, nous chassons l'ordinaire pour provoquer l'émerveillement et marquer les esprits à jamais.</p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ EXPERIENCES ══════════════════════════════
+    Section parallax — L'art de vivre en mouvement
+    Fond sombre · header sticky · cartes inclinées
+  ══════════════════════════════════════════════ -->
+  <section id="experiences">
+
+    <!-- Header sticky centré -->
+    <div class="exp-header" id="expHeader">
+      <div class="exp-headline">
+        <p class="exp-label" data-i18n="exp.label">— Expériences</p>
+        <h2 class="exp-title" data-i18n-html="exp.title">
+          L'art de vivre,<br /><em>en mouvement.</em>
+        </h2>
+        <p class="exp-sub" data-i18n-html="exp.sub">
+          Chaque univers raconte une manière d'habiter l'exception :<br />
+          une table, un voyage, une fête, une adresse que l'on ne trouve pas.
+        </p>
+        <a href="#contact" class="exp-cta" data-i18n="exp.cta">Voir les inspirations</a>
+      </div>
+    </div>
+
+    <!-- Colonnes de cartes — grille parallax -->
+    <div class="exp-grid">
+      <div class="exp-col exp-col-l" id="expLeft">
+        <div class="exp-card" style="--rot:-3deg">
+          <img src="assets/images/ferrari-dinner.jpg" alt="Dîner privé" loading="lazy" />
+          <span class="exp-card-lbl">Dîner privé</span>
+        </div>
+        <div class="exp-card" style="--rot:2deg">
+          <img src="assets/images/grand-prix.jpg" alt="Grand Prix" loading="lazy" />
+          <span class="exp-card-lbl">Grand Prix</span>
+        </div>
+        <div class="exp-card" style="--rot:-1.5deg">
+          <img src="assets/images/evenement-costes.jpg" alt="Soirée exclusive" loading="lazy" />
+          <span class="exp-card-lbl">Soirée exclusive</span>
+        </div>
+      </div>
+      <div class="exp-col exp-col-r" id="expRight">
+        <div class="exp-card" style="--rot:2.5deg">
+          <img src="assets/images/monaco.jpg" alt="Séjour d'exception" loading="lazy" />
+          <span class="exp-card-lbl">Séjour d'exception</span>
+        </div>
+        <div class="exp-card" style="--rot:-2deg">
+          <img
+            src="assets/images/table-lac.jpg"
+            alt="Table d'exception" loading="lazy" />
+          <span class="exp-card-lbl">Table d'exception</span>
+        </div>
+        <div class="exp-card" style="--rot:2.8deg">
+          <img
+            src="https://images.pexels.com/photos/11188303/pexels-photo-11188303.jpeg?auto=compress&cs=tinysrgb&w=1400"
+            alt="Fashion Week" loading="lazy" />
+          <span class="exp-card-lbl">Fashion Week</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══ 06 · GALERIE — Slider paysage ══════════ -->
+  <section id="galerie">
+    <div class="galerie-head">
+      <p class="g-label reveal">— En Images</p>
+    </div>
+    <div class="g-stage">
+      <div class="g-overflow">
+        <div class="g-track" id="gTrack">
+
+            <!-- 01 — garder -->
+          <div class="g-slide">
+            <div class="g-img"><img src="assets/images/ferrari-dinner.jpg" alt="Dîner Privé" loading="lazy" /></div>
+            <div class="g-caption">
+              <span class="g-title">Dîner Privé</span>
+              <span class="g-cat">Événements</span>
+            </div>
+          </div>
+
+          <!-- 02 — garder (était 3e, maintenant 2e) -->
+          <div class="g-slide">
+            <div class="g-img"><img src="assets/images/grand-prix.jpg" alt="Grand Prix de Doha" loading="lazy" /></div>
+            <div class="g-caption">
+              <span class="g-title">Grand Prix de Doha</span>
+              <span class="g-cat">Lifestyle</span>
+            </div>
+          </div>
+
+          <!-- 03 — ta photo 1 → sauvegarder sous assets/images/adresses-confidentielles.jpg -->
+          <div class="g-slide">
+            <div class="g-img"><img src="assets/images/adresses-confidentielles.jpg" alt="Adresses Confidentielles" loading="lazy" /></div>
+            <div class="g-caption">
+              <span class="g-title">Adresses Confidentielles</span>
+              <span class="g-cat">Séjours</span>
+            </div>
+          </div>
+
+          <!-- 04 — ta photo 2 → sauvegarder sous assets/images/escapade-privee.jpg -->
+          <div class="g-slide">
+            <div class="g-img"><img src="assets/images/escapade-privee.jpg" alt="Escapade Privée" loading="lazy" /></div>
+            <div class="g-caption">
+              <span class="g-title">Escapade Privée</span>
+              <span class="g-cat">Voyages</span>
+            </div>
+          </div>
+
+          <!-- 05 — ta photo 3 → sauvegarder sous assets/images/private-party.jpg -->
+          <div class="g-slide">
+            <div class="g-img"><img src="assets/images/private-party.jpg" alt="Private Party" loading="lazy" /></div>
+            <div class="g-caption">
+              <span class="g-title">Private Party</span>
+              <span class="g-cat">Événements</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Flèches latérales centrées sur la hauteur de l'image -->
+      <button class="gn-btn gn-prev" aria-label="Précédent">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="gn-btn gn-next" aria-label="Suivant">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ══ 07 · CONTACT ══════════════════════════ -->
+  <section id="contact">
+    <div class="contact-wrap">
+
+      <div class="contact-left">
+        <p class="c-label reveal" data-i18n="c.label">— Demande Privée</p>
+        <h2 class="c-title reveal" data-i18n-html="c.title">
+          Imaginer votre<br /><em>expérience avec nous.</em>
+        </h2>
+        <p class="c-sub reveal" data-i18n="c.sub">
+          Une demande confidentielle, une envie précise ou une
+          occasion à célébrer. Nous vous répondons avec discrétion sous 24h.
+        </p>
+        <a href="mailto:contact@maisonchalambert.com" class="c-email reveal">
+          contact@maisonchalambert.com
+        </a>
+        <div class="c-socials reveal">
+          <a href="#" class="cs-link">Instagram</a>
+          <span class="cs-dot">·</span>
+          <a href="#" class="cs-link">LinkedIn</a>
+        </div>
+        <!-- Disponibilité live -->
+        <div class="c-live reveal">
+          <span class="live-dot"></span>
+          Disponible pour demandes privées
+        </div>
+      </div>
+
+      <form id="form" class="contact-form reveal" novalidate>
+        <div class="f-row">
+          <div class="f-g">
+            <label data-i18n="f.first">Prénom</label>
+            <input type="text" name="prenom" placeholder="—" autocomplete="given-name" />
+          </div>
+          <div class="f-g">
+            <label data-i18n="f.last">Nom</label>
+            <input type="text" name="nom" placeholder="—" autocomplete="family-name" />
+          </div>
+        </div>
+        <div class="f-g">
+          <label data-i18n="f.email">Email</label>
+          <input type="email" name="email" placeholder="—" autocomplete="email" />
+        </div>
+        <div class="f-g">
+          <label data-i18n="f.world">Univers</label>
+          <select name="univers" id="f-select">
+            <option value="" disabled selected>—</option>
+            <option data-i18n="f.opt1">Événements Privés</option>
+            <option data-i18n="f.opt2">Tables d'Exception</option>
+            <option data-i18n="f.opt3">Lifestyle</option>
+            <option data-i18n="f.opt4">Voyages Sur-Mesure</option>
+          </select>
+        </div>
+        <div class="f-g">
+          <label data-i18n="f.msg">Votre demande</label>
+          <textarea name="message" rows="3" placeholder="—"></textarea>
+        </div>
+        <button type="submit" class="f-btn">
+          <span data-i18n="f.send">Envoyer</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ════════════════════════════════ -->
+  <footer id="footer">
+    <div class="ft-marquee-wrap">
+      <div class="ft-marquee">
+        <span>RIEN N'EST TROP EXCEPTIONNEL &nbsp;·&nbsp; </span>
+        <span>RIEN N'EST TROP EXCEPTIONNEL &nbsp;·&nbsp; </span>
+        <span>RIEN N'EST TROP EXCEPTIONNEL &nbsp;·&nbsp; </span>
+        <span>RIEN N'EST TROP EXCEPTIONNEL &nbsp;·&nbsp; </span>
+        <span>RIEN N'EST TROP EXCEPTIONNEL &nbsp;·&nbsp; </span>
+        <span>RIEN N'EST TROP EXCEPTIONNEL &nbsp;·&nbsp; </span>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span class="ft-name">MAISON CHALAMBERT</span>
+      <span class="ft-cats">Événements · Tables · Lifestyle · Voyages</span>
+      <div class="ft-links">
+        <a href="#">Mentions légales</a>
+        <a href="#">Confidentialité</a>
+        <a href="mailto:contact@maisonchalambert.com">Contact</a>
+      </div>
+      <span class="ft-copy">&copy; 2026</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
