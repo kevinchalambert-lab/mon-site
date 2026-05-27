@@ -79,13 +79,16 @@
   ══════════════════════════════════════════════ */
   const videos  = Array.from(document.querySelectorAll('.reel-v'));
   let   reelIdx = 0;
-  // Durées par vidéo (ms) — V1 parasols plus longue et plus lente
-  const REEL_DURATIONS = [11000, 6500, 6500, 6500, 6500];
+  // Durées par vidéo (ms) — V1 parasols légèrement plus longue
+  const REEL_DURATIONS = [8500, 6500, 6500, 6500, 6500];
   const FADE_DURATION = 1800; // 1.8s crossfade (doit correspondre au CSS)
 
   if (videos.length > 1) {
     // S'assurer que toutes les vidéos sont en boucle et muettes
     videos.forEach(v => { v.muted = true; v.loop = true; });
+
+    // Slow motion sur la première vidéo (parasols) — 45% de la vitesse normale
+    videos[0].playbackRate = 0.45;
 
     const tryPlay = v => {
       if (!v) return;
