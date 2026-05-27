@@ -245,23 +245,34 @@
     </div>
   </section>
 
-  <!-- ══ 04 · ÉDITORIAL PLEIN ÉCRAN ════════════ -->
+  <!-- ══ 04 · ÉDITORIAL — Table qui s'éteint ════ -->
   <section id="editorial">
-    <div class="ed-img">
-      <img
-        src="assets/images/evenement-costes.jpg"
-        alt="Kevin Chalambert — fondateur de Maison Chalambert, conciergerie de luxe à Paris"
-        loading="lazy"
-      />
-      <div class="ed-veil"></div>
-    </div>
-    <div class="ed-caption">
-      <div class="ed-line reveal"></div>
-      <blockquote class="ed-quote reveal" data-i18n-html="ed.quote">
-        "Il existe des portes que d'autres<br />
-        n'ont jamais su frapper."
-      </blockquote>
-      <p class="ed-by reveal">— Maison Chalambert</p>
+    <div class="ed-sticky">
+
+      <!-- Scène : table rouge foncé + lampes tamisées -->
+      <div class="ed-scene">
+        <!-- Halos de lampes suspendues -->
+        <div class="ed-lamp ed-lamp-l"></div>
+        <div class="ed-lamp ed-lamp-c"></div>
+        <div class="ed-lamp ed-lamp-r"></div>
+        <!-- Nappe bordeaux -->
+        <div class="ed-tablecloth"></div>
+        <!-- Reflet de lumière sur la table -->
+        <div class="ed-table-pool"></div>
+        <!-- Voile d'obscurité — s'opacifie au scroll -->
+        <div class="ed-darkness" id="edDarkness"></div>
+      </div>
+
+      <!-- Citation — même position, même typo qu'avant -->
+      <div class="ed-caption">
+        <div class="ed-line reveal"></div>
+        <blockquote class="ed-quote reveal" data-i18n-html="ed.quote">
+          "Il existe des portes que d'autres<br />
+          n'ont jamais su frapper."
+        </blockquote>
+        <p class="ed-by reveal">— Maison Chalambert</p>
+      </div>
+
     </div>
   </section>
 
