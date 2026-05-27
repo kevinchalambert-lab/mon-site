@@ -516,119 +516,33 @@ input, textarea, select { font-family: var(--sans); }
 /* ══════════════════════════════════════════════════
    04 · ÉDITORIAL
 ══════════════════════════════════════════════════ */
-/* ── ÉDITORIAL — Table qui s'éteint au scroll ── */
 #editorial {
   position: relative;
-  height: 230vh;
-  background: #020102;
-}
-
-.ed-sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
+  height: 92vh; min-height: 580px;
   overflow: hidden;
-  display: flex;
-  align-items: flex-end;
+  display: flex; align-items: flex-end;
 }
 
-/* Scène complète */
-.ed-scene {
-  position: absolute;
-  inset: 0;
-  background: #020102;
-}
-
-/* ── Lampes suspendues — halos de lumière chaude ── */
-.ed-lamp {
-  position: absolute;
-  top: 0;
-  border-radius: 50%;
-  pointer-events: none;
-  will-change: opacity;
-}
-
-.ed-lamp-c { /* lampe centrale — principale */
-  width: 520px; height: 620px;
-  left: 50%; top: -120px;
-  transform: translateX(-50%);
-  background: radial-gradient(ellipse at 50% 22%,
-    rgba(255,168,58,.32) 0%,
-    rgba(230,125,38,.14) 38%,
-    rgba(175,75,18,.05) 65%,
-    transparent 100%);
-}
-
-.ed-lamp-l { /* lampe gauche */
-  width: 340px; height: 480px;
-  left: 10%; top: -80px;
-  background: radial-gradient(ellipse at 50% 18%,
-    rgba(255,152,48,.24) 0%,
-    rgba(205,98,28,.09) 48%,
-    transparent 100%);
-}
-
-.ed-lamp-r { /* lampe droite */
-  width: 340px; height: 480px;
-  right: 10%; top: -80px;
-  background: radial-gradient(ellipse at 50% 18%,
-    rgba(255,152,48,.24) 0%,
-    rgba(205,98,28,.09) 48%,
-    transparent 100%);
-}
-
-/* ── Nappe — rouge bordeaux profond ── */
-.ed-tablecloth {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 46%;
-  background:
-    linear-gradient(to bottom,
-      transparent 0%,
-      rgba(75,10,20,.55) 7%,
-      #3e0c15 20%,
-      #4c1020 46%,
-      #3c0c13 72%,
-      #230609 100%);
-}
-
-/* ── Bord de table — ligne lumineuse subtile ── */
-.ed-scene::before {
-  content: '';
-  position: absolute;
-  bottom: 46%;
-  left: 7%; right: 7%;
-  height: 1px;
-  background: linear-gradient(to right,
-    transparent 0%,
-    rgba(205,158,82,.14) 18%,
-    rgba(225,178,102,.26) 50%,
-    rgba(205,158,82,.14) 82%,
-    transparent 100%);
-}
-
-/* ── Reflet des lampes sur la nappe ── */
-.ed-table-pool {
-  position: absolute;
-  bottom: 43%;
-  left: 50%; transform: translateX(-50%);
-  width: 65%; height: 110px;
-  background: radial-gradient(ellipse at center,
-    rgba(255,148,48,.11) 0%,
-    rgba(200,98,28,.04) 55%,
-    transparent 100%);
-  filter: blur(18px);
-  pointer-events: none;
-  will-change: opacity;
-}
-
-/* ── Voile noir — s'opacifie au scroll ── */
-.ed-darkness {
+.ed-img {
   position: absolute; inset: 0;
-  background: #020102;
-  opacity: 0;
-  will-change: opacity;
-  pointer-events: none;
+}
+.ed-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  object-position: center center;
+  filter: brightness(.6) saturate(.78);
+  transform: scale(1.08);
+  transition: transform 14s var(--ease-s);
+  will-change: transform;
+}
+#editorial.in-view .ed-img img { transform: scale(1); }
+
+.ed-veil {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top,
+    rgba(10,9,8,.82) 0%,
+    rgba(10,9,8,.22) 52%,
+    transparent 100%
+  );
 }
 
 .ed-caption {
@@ -1258,10 +1172,8 @@ input, textarea, select { font-family: var(--sans); }
   .univers-panels { grid-template-columns: 1fr; height: auto; padding: 0 0 0; gap: 3px; }
   .u-panel { height: 75vw; min-height: 320px; }
 
-  #editorial { height: 180vh; }
+  #editorial { height: 72vh; }
   .ed-caption { padding: 0 32px 52px; }
-  .ed-lamp-c { width: 320px; height: 420px; }
-  .ed-lamp-l, .ed-lamp-r { width: 220px; height: 320px; }
 
   #maison { padding: 120px 28px; }
   .piliers { grid-template-columns: 1fr; }

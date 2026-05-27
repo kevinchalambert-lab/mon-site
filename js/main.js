@@ -249,28 +249,12 @@
     revealObs.observe(el);
   });
 
-  // ── Table éditoriale — lumières qui s'éteignent au scroll ──
-  const editorial  = document.getElementById('editorial');
-  const edDarkness = document.getElementById('edDarkness');
-  const edLamps    = editorial ? editorial.querySelectorAll('.ed-lamp') : [];
-  const edPool     = editorial ? editorial.querySelector('.ed-table-pool') : null;
-
-  if (editorial && edDarkness) {
-    const updateLights = () => {
-      const rect       = editorial.getBoundingClientRect();
-      const scrollable = editorial.offsetHeight - window.innerHeight;
-      const progress   = Math.max(0, Math.min(1, -rect.top / scrollable));
-
-      // Les lampes s'affaiblissent dès le début
-      edLamps.forEach(l => { l.style.opacity = 1 - progress * 0.9; });
-      if (edPool) edPool.style.opacity = 1 - progress * 0.9;
-
-      // L'obscurité monte — noire totale à la fin
-      edDarkness.style.opacity = progress;
-    };
-
-    window.addEventListener('scroll', updateLights, { passive: true });
-    updateLights();
+  // Éditorial parallax-zoom trigger
+  const editorial = document.getElementById('editorial');
+  if (editorial) {
+    new IntersectionObserver(entries => {
+      editorial.classList.toggle('in-view', entries[0].isIntersecting);
+    }, { threshold: 0.05 }).observe(editorial);
   }
 
   /* ══════════════════════════════════════════════
