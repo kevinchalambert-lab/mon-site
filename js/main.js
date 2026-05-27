@@ -258,6 +258,32 @@
   }
 
   /* ══════════════════════════════════════════════
+     ÉDITORIAL — Effet Jour → Nuit au scroll
+     La luminosité baisse progressivement à mesure
+     que la section défile. Ambiance cinématographique.
+  ══════════════════════════════════════════════ */
+  const edImg = editorial ? editorial.querySelector('.ed-img img') : null;
+  if (editorial && edImg) {
+    const updateDayNight = () => {
+      const rect  = editorial.getBoundingClientRect();
+      const vh    = window.innerHeight;
+      // p = 0 : section qui entre par le bas
+      // p = 1 : section qui sort par le haut
+      const p = Math.max(0, Math.min(1, (vh - rect.top) / (vh + rect.height)));
+
+      // Jour (p=0) → Nuit (p=1)
+      const br  = (0.95 - p * 0.82).toFixed(3);   // 0.95 → 0.13
+      const sat = (1.05 - p * 0.85).toFixed(3);    // 1.05 → 0.20
+      const hue = -(p * 28).toFixed(1);             // 0° → -28° (tons froids, nuit)
+
+      edImg.style.filter = `brightness(${br}) saturate(${sat}) hue-rotate(${hue}deg)`;
+    };
+
+    window.addEventListener('scroll', updateDayNight, { passive: true });
+    updateDayNight(); // état initial au chargement
+  }
+
+  /* ══════════════════════════════════════════════
      SMOOTH SCROLL
   ══════════════════════════════════════════════ */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
