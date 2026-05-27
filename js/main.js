@@ -249,31 +249,12 @@
     revealObs.observe(el);
   });
 
-  // ── Portes éditoriales — ouverture au scroll ──
+  // Éditorial parallax-zoom trigger
   const editorial = document.getElementById('editorial');
-  const doorL     = editorial?.querySelector('.ed-door-l');
-  const doorR     = editorial?.querySelector('.ed-door-r');
-  const edCaption = editorial?.querySelector('.ed-caption');
-
-  if (editorial && doorL && doorR) {
-    const updateDoors = () => {
-      const rect      = editorial.getBoundingClientRect();
-      const scrollable = editorial.offsetHeight - window.innerHeight;
-      const progress  = Math.max(0, Math.min(1, -rect.top / scrollable));
-
-      // Chaque porte glisse vers l'extérieur (max 54%)
-      const open = progress * 54;
-      doorL.style.transform = `translateX(-${open}%)`;
-      doorR.style.transform = `translateX(${open}%)`;
-
-      // La citation apparaît dès que les portes sont à 38% d'ouverture
-      if (edCaption) {
-        edCaption.style.opacity = Math.max(0, (progress - 0.38) / 0.62);
-      }
-    };
-
-    window.addEventListener('scroll', updateDoors, { passive: true });
-    updateDoors();
+  if (editorial) {
+    new IntersectionObserver(entries => {
+      editorial.classList.toggle('in-view', entries[0].isIntersecting);
+    }, { threshold: 0.05 }).observe(editorial);
   }
 
   /* ══════════════════════════════════════════════
