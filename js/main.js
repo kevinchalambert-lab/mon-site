@@ -79,7 +79,8 @@
   ══════════════════════════════════════════════ */
   const videos  = Array.from(document.querySelectorAll('.reel-v'));
   let   reelIdx = 0;
-  const REEL_INTERVAL = 6500; // 6.5s par vidéo
+  // Durées par vidéo (ms) — V1 parasols plus longue et plus lente
+  const REEL_DURATIONS = [11000, 6500, 6500, 6500, 6500];
   const FADE_DURATION = 1800; // 1.8s crossfade (doit correspondre au CSS)
 
   if (videos.length > 1) {
@@ -125,7 +126,14 @@
       }, FADE_DURATION);
     };
 
-    setInterval(advanceReel, REEL_INTERVAL);
+    // setTimeout récursif pour appliquer une durée différente par vidéo
+    const scheduleNext = () => {
+      setTimeout(() => {
+        advanceReel();
+        scheduleNext();
+      }, REEL_DURATIONS[reelIdx] || 6500);
+    };
+    scheduleNext();
   }
 
   /* ══════════════════════════════════════════════
