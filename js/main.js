@@ -375,6 +375,116 @@
   }
 
   /* ══════════════════════════════════════════════
+     INERTIA SCROLL — desktop uniquement
+     Wheel intercepté → lerp RAF → scrollTo()
+     Mobile : momentum natif iOS/Android, on ne touche pas.
+  ══════════════════════════════════════════════ */
+  if (!isTouch) {
+    let tScroll = window.scrollY;
+    let cScroll = window.scrollY;
+    let sRaf    = 0;
+
+    const maxScroll = () =>
+      Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+
+    const inertiaStep = () => {
+      cScroll += (tScroll - cScroll) * 0.09;
+      if (Math.abs(tScroll - cScroll) < 0.5) {
+        window.scrollTo(0, tScroll);
+        sRaf = 0;
+        return;
+      }
+      window.scrollTo(0, Math.round(cScroll));
+      sRaf = requestAnimationFrame(inertiaStep);
+    };
+
+    window.addEventListener('wheel', e => {
+      e.preventDefault();
+      // Resync si le scroll natif a bougé (clic ancre, clavier, scrollbar)
+      if (Math.abs(tScroll - window.scrollY) > 120) {
+        tScroll = cScroll = window.scrollY;
+      }
+      tScroll = Math.max(0, Math.min(maxScroll(), tScroll + e.deltaY));
+      cancelAnimationFrame(sRaf);
+      sRaf = requestAnimationFrame(inertiaStep);
+    }, { passive: false });
+
+    // Resync après navigation clavier (flèches, espace, PgDn…)
+    window.addEventListener('keydown', e => {
+      if ([' ', 'ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End'].includes(e.key)) {
+        setTimeout(() => { tScroll = cScroll = window.scrollY; }, 50);
+      }
+    });
+  }
+
+  /* ══════════════════════════════════════════════
+     GRAIN CINÉMATOGRAPHIQUE — Texture argentique animée
+     Canvas 220×220 px tuilé sur toute la page à ~24 fps.
+     Opacity très basse + mix-blend-mode: overlay
+     → ambiance photo argentique, zéro friction utilisateur.
+  ══════════════════════════════════════════════ */
+  (() => {
+    const TILE = 220;
+
+    // Canvas source : petite tuile de bruit généré en JS
+    const tileCvs = document.createElement('canvas');
+    tileCvs.width = tileCvs.height = TILE;
+    const tCtx = tileCvs.getContext('2d');
+
+    // Canvas affiché : full-viewport, position: fixed
+    const grain = document.createElement('canvas');
+    Object.assign(grain.style, {
+      position:      'fixed',
+      inset:         '0',
+      width:         '100vw',
+      height:        '100vh',
+      pointerEvents: 'none',
+      zIndex:        '9997',
+      opacity:       '0.038',
+      mixBlendMode:  'overlay',
+    });
+    document.body.appendChild(grain);
+    const gCtx = grain.getContext('2d');
+
+    const resize = () => {
+      grain.width  = window.innerWidth;
+      grain.height = window.innerHeight;
+    };
+    window.addEventListener('resize', resize, { passive: true });
+    resize();
+
+    let lastGrainTS = 0;
+    const FPS_INTERVAL = 1000 / 24; // 24 fps — argentique naturel
+
+    const tick = ts => {
+      requestAnimationFrame(tick);
+      if (ts - lastGrainTS < FPS_INTERVAL) return;
+      lastGrainTS = ts;
+
+      // 1. Générer la tuile de bruit aléatoire
+      const img  = tCtx.createImageData(TILE, TILE);
+      const data = img.data;
+      for (let i = 0; i < data.length; i += 4) {
+        const v     = (Math.random() * 255) | 0;
+        data[i]     = v;
+        data[i + 1] = v;
+        data[i + 2] = v;
+        data[i + 3] = 255;
+      }
+      tCtx.putImageData(img, 0, 0);
+
+      // 2. Tuiler sur l'écran avec décalage aléatoire à chaque frame
+      const pattern = gCtx.createPattern(tileCvs, 'repeat');
+      const ox = (Math.random() * TILE) | 0;
+      const oy = (Math.random() * TILE) | 0;
+      pattern.setTransform(new DOMMatrix().translateSelf(ox, oy));
+      gCtx.fillStyle = pattern;
+      gCtx.fillRect(0, 0, grain.width, grain.height);
+    };
+    requestAnimationFrame(tick);
+  })();
+
+  /* ══════════════════════════════════════════════
      FOOTER MARQUEE — pause on hover
   ══════════════════════════════════════════════ */
   const marquee = document.querySelector('.ft-marquee');
