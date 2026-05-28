@@ -6,7 +6,9 @@
   <title>Demande Privée — Maison Chalambert</title>
   <meta name="description" content="Initiez votre demande privée auprès de Maison Chalambert. Événements, tables d'exception, voyages sur-mesure, lifestyle. Réponse sous 24h avec la plus grande discrétion." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://maisonchalambert.com/contact" />
+  <link rel="canonical" href="https://maisonchalambert.com/contact" id="canonical-tag" />
+  <link rel="alternate" hreflang="fr" href="https://maisonchalambert.com/contact" />
+  <link rel="alternate" hreflang="en" href="https://maisonchalambert.com/en/contact" />
 
   <meta property="og:type"        content="website" />
   <meta property="og:site_name"   content="Maison Chalambert" />
@@ -125,13 +127,18 @@
   <!-- ══ NAVIGATION ════════════════════════════ -->
   <header id="nav" class="solid">
     <div class="nav-left">
-      <a href="/#univers" class="n-link">Nos Univers</a>
-      <a href="/#maison"  class="n-link">La Maison</a>
+      <a href="/#univers" class="n-link" data-i18n="nav.univers">Nos Univers</a>
+      <a href="/#maison"  class="n-link" data-i18n="nav.maison">La Maison</a>
     </div>
     <a href="/" class="n-logo">MAISON CHALAMBERT</a>
     <div class="nav-right">
-      <a href="/#galerie" class="n-link">Galerie</a>
-      <a href="/contact"  class="n-cta">Demande Privée</a>
+      <a href="/#galerie" class="n-link" data-i18n="nav.galerie">Galerie</a>
+      <div class="lang-sw">
+        <button class="ls-btn active" data-set-lang="fr">FR</button>
+        <span class="ls-sep">|</span>
+        <button class="ls-btn" data-set-lang="en">EN</button>
+      </div>
+      <a href="/contact" class="n-cta" data-i18n="nav.cta">Demande Privée</a>
     </div>
     <a href="/" class="n-logo-mobile">MAISON CHALAMBERT</a>
     <button id="burger" aria-label="Menu">
@@ -140,10 +147,10 @@
   </header>
 
   <div id="nav-overlay">
-    <a href="/#univers" class="no-link">Nos Univers</a>
-    <a href="/#maison"  class="no-link">La Maison</a>
-    <a href="/#galerie" class="no-link">Galerie</a>
-    <a href="/contact"  class="no-link">Contact</a>
+    <a href="/#univers" class="no-link" data-i18n="nav.univers">Nos Univers</a>
+    <a href="/#maison"  class="no-link" data-i18n="nav.maison">La Maison</a>
+    <a href="/#galerie" class="no-link" data-i18n="nav.galerie">Galerie</a>
+    <a href="/contact"  class="no-link" data-i18n="nav.contact">Contact</a>
   </div>
 
   <!-- ══ HERO ═════════════════════════════════ -->
@@ -156,8 +163,8 @@
     </div>
     <div class="ct-hero-veil"></div>
     <div class="ct-hero-content">
-      <span class="ct-hero-kicker">— Demande Privée</span>
-      <h1 class="ct-hero-title">Parlons de<br /><em>votre projet.</em></h1>
+      <span class="ct-hero-kicker" data-i18n="ct.kicker">— Demande Privée</span>
+      <h1 class="ct-hero-title" data-i18n-html="ct.title">L'exception<br /><em>commence ici.</em></h1>
     </div>
   </section>
 
@@ -166,11 +173,11 @@
     <div class="contact-wrap">
 
       <div class="contact-left">
-        <p class="c-label reveal">— Demande Privée</p>
-        <h2 class="c-title reveal" style="--d:80ms">
+        <p class="c-label reveal" data-i18n="ct.label">— Demande Privée</p>
+        <h2 class="c-title reveal" style="--d:80ms" data-i18n-html="ct.subtitle">
           Imaginer votre<br /><em>expérience avec nous.</em>
         </h2>
-        <p class="c-sub reveal" style="--d:160ms">
+        <p class="c-sub reveal" style="--d:160ms" data-i18n="ct.body">
           Une demande confidentielle, une envie précise ou une occasion à célébrer.
           Nous vous répondons avec discrétion sous 24h.
         </p>
@@ -185,11 +192,11 @@
         </div>
         <div class="c-live reveal" style="--d:360ms">
           <span class="live-dot"></span>
-          Disponible pour demandes privées
+          <span data-i18n="ct.live">Disponible pour demandes privées</span>
         </div>
 
         <div class="ct-info-block reveal" style="--d:420ms">
-          <p class="ct-info-label">Coordonnées</p>
+          <p class="ct-info-label" data-i18n="ct.coords">Coordonnées</p>
           <p class="ct-info-item">
             <a href="https://wa.me/33778253980" target="_blank" rel="noopener noreferrer">
               WhatsApp : +33 7 78 25 39 80
@@ -208,43 +215,43 @@
 
         <div class="f-row">
           <div class="f-g">
-            <label>Prénom</label>
+            <label data-i18n="f.prenom">Prénom</label>
             <input type="text" name="prenom" placeholder="—" autocomplete="given-name" />
           </div>
           <div class="f-g">
-            <label>Nom</label>
+            <label data-i18n="f.nom">Nom</label>
             <input type="text" name="nom" placeholder="—" autocomplete="family-name" />
           </div>
         </div>
 
         <div class="f-g">
-          <label>Email</label>
+          <label data-i18n="f.email">Email</label>
           <input type="email" name="email" placeholder="—" autocomplete="email" />
         </div>
 
         <div class="f-g">
-          <label>Téléphone</label>
+          <label data-i18n="f.tel">Téléphone</label>
           <input type="tel" name="telephone" placeholder="—" autocomplete="tel" />
         </div>
 
         <div class="f-g">
-          <label>Univers</label>
+          <label data-i18n="f.univers">Univers</label>
           <select name="univers" id="f-select">
             <option value="" disabled selected>—</option>
-            <option>Événements Privés</option>
-            <option>Tables d'Exception</option>
-            <option>Lifestyle</option>
-            <option>Voyages Sur-Mesure</option>
+            <option data-i18n-opt="f.opt1">Événements Privés</option>
+            <option data-i18n-opt="f.opt2">Tables d'Exception</option>
+            <option data-i18n-opt="f.opt3">Lifestyle</option>
+            <option data-i18n-opt="f.opt4">Voyages Sur-Mesure</option>
           </select>
         </div>
 
         <div class="f-g">
-          <label>Votre demande</label>
+          <label data-i18n="f.message">Votre demande</label>
           <textarea name="message" rows="5" placeholder="—"></textarea>
         </div>
 
-        <button type="submit" class="f-btn">
-          <span>Envoyer</span>
+        <button type="submit" class="f-btn" id="f-submit-btn">
+          <span data-i18n="f.send">Envoyer</span>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
             <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -268,7 +275,7 @@
     </div>
     <div class="ft-bottom">
       <span class="ft-name">MAISON CHALAMBERT</span>
-      <span class="ft-cats">Événements · Tables · Lifestyle · Voyages</span>
+      <span class="ft-cats" data-i18n="ft.cats">Événements · Tables · Lifestyle · Voyages</span>
       <div class="ft-links">
         <a href="/mentions-legales">Mentions légales</a>
         <a href="/confidentialite">Confidentialité</a>
@@ -289,118 +296,181 @@
   </a>
 
   <script>
-    (() => {
-      'use strict';
+  (() => {
+    'use strict';
 
-      /* Nav */
-      const nav = document.getElementById('nav');
-      window.addEventListener('scroll', () => {
-        nav.classList.toggle('solid', window.scrollY > 60);
-      }, { passive: true });
+    /* ── Nav ── */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('solid', window.scrollY > 60);
+    }, { passive: true });
 
-      /* Burger */
-      const burger  = document.getElementById('burger');
-      const overlay = document.getElementById('nav-overlay');
-      let menuOpen  = false;
-      if (burger && overlay) {
-        const toggle = (force = null) => {
-          menuOpen = force !== null ? force : !menuOpen;
-          burger.classList.toggle('open', menuOpen);
-          overlay.classList.toggle('open', menuOpen);
-          document.body.style.overflow = menuOpen ? 'hidden' : '';
-        };
-        burger.addEventListener('click', () => toggle());
-        overlay.querySelectorAll('.no-link').forEach(l =>
-          l.addEventListener('click', () => toggle(false))
-        );
-      }
+    /* ── Burger ── */
+    const burger  = document.getElementById('burger');
+    const overlay = document.getElementById('nav-overlay');
+    let menuOpen  = false;
+    if (burger && overlay) {
+      const toggle = (f = null) => {
+        menuOpen = f !== null ? f : !menuOpen;
+        burger.classList.toggle('open', menuOpen);
+        overlay.classList.toggle('open', menuOpen);
+        document.body.style.overflow = menuOpen ? 'hidden' : '';
+      };
+      burger.addEventListener('click', () => toggle());
+      overlay.querySelectorAll('.no-link').forEach(l => l.addEventListener('click', () => toggle(false)));
+    }
 
-      /* Scroll reveals */
-      const obs = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
-        });
-      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    /* ── Reveals ── */
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-      /* Footer marquee */
-      const marquee = document.querySelector('.ft-marquee');
-      if (marquee) {
-        marquee.addEventListener('mouseenter', () => marquee.style.animationPlayState = 'paused');
-        marquee.addEventListener('mouseleave', () => marquee.style.animationPlayState = 'running');
-      }
+    /* ── Marquee ── */
+    const mq = document.querySelector('.ft-marquee');
+    if (mq) {
+      mq.addEventListener('mouseenter', () => mq.style.animationPlayState = 'paused');
+      mq.addEventListener('mouseleave', () => mq.style.animationPlayState = 'running');
+    }
 
-      /* Formspark — sans redirection */
-      const FORMSPARK = 'https://submit-form.com/form_v1_h3NaQ59z5lmbsAL2vtlnTSrv';
-      const form = document.getElementById('form-contact');
-      if (form) {
-        form.addEventListener('submit', async e => {
-          e.preventDefault();
-          const btn     = form.querySelector('.f-btn');
-          const btnSpan = btn ? btn.querySelector('span') : null;
-          if (!btn || !btnSpan) return;
+    /* ── Formspark ── */
+    const FORMSPARK = 'https://submit-form.com/form_v1_h3NaQ59z5lmbsAL2vtlnTSrv';
+    const form = document.getElementById('form-contact');
+    if (form) {
+      form.addEventListener('submit', async e => {
+        e.preventDefault();
+        const btn     = form.querySelector('.f-btn');
+        const btnSpan = btn ? btn.querySelector('span') : null;
+        if (!btn || !btnSpan) return;
 
-          const prenom = form.querySelector('[name="prenom"]')?.value.trim();
-          const email  = form.querySelector('[name="email"]')?.value.trim();
-          if (!prenom || !email) {
-            btn.style.transition = 'opacity .25s';
-            btn.style.opacity    = '.35';
-            setTimeout(() => { btn.style.opacity = ''; }, 500);
-            return;
+        const prenom = form.querySelector('[name="prenom"]')?.value.trim();
+        const email  = form.querySelector('[name="email"]')?.value.trim();
+        if (!prenom || !email) {
+          btn.style.transition = 'opacity .25s';
+          btn.style.opacity    = '.35';
+          setTimeout(() => { btn.style.opacity = ''; }, 500);
+          return;
+        }
+
+        btn.disabled        = true;
+        const sendingText   = currentLang === 'en' ? '…' : '…';
+        btnSpan.textContent = sendingText;
+
+        const params = new URLSearchParams();
+        new FormData(form).forEach((val, key) => params.append(key, val));
+
+        try {
+          const res = await fetch(FORMSPARK, {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body:    params.toString(),
+          });
+          if (res.ok) {
+            btnSpan.textContent = currentLang === 'en' ? 'Message sent ✓' : 'Message envoyé ✓';
+            btn.style.opacity   = '.55';
+            form.reset();
+            setTimeout(() => {
+              btnSpan.textContent = T[currentLang]['f.send'];
+              btn.style.opacity   = '';
+              btn.disabled        = false;
+            }, 5000);
+          } else {
+            throw new Error('HTTP ' + res.status);
           }
+        } catch (err) {
+          console.error('Formspark:', err);
+          btnSpan.textContent = currentLang === 'en' ? 'Error — please retry' : 'Erreur — réessayez';
+          btn.disabled        = false;
+          setTimeout(() => { btnSpan.textContent = T[currentLang]['f.send']; }, 3500);
+        }
+      });
+    }
 
-          btn.disabled        = true;
-          btnSpan.textContent = '…';
-
-          const params = new URLSearchParams();
-          new FormData(form).forEach((val, key) => params.append(key, val));
-
-          try {
-            const res = await fetch(FORMSPARK, {
-              method:  'POST',
-              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-              body:    params.toString(),
-            });
-            if (res.ok) {
-              btnSpan.textContent = 'Message envoyé ✓';
-              btn.style.opacity   = '.55';
-              form.reset();
-              setTimeout(() => {
-                btnSpan.textContent = 'Envoyer';
-                btn.style.opacity   = '';
-                btn.disabled        = false;
-              }, 5000);
-            } else {
-              throw new Error('HTTP ' + res.status);
-            }
-          } catch (err) {
-            console.error('Formspark:', err);
-            btnSpan.textContent = 'Erreur — réessayez';
-            btn.disabled        = false;
-            setTimeout(() => { btnSpan.textContent = 'Envoyer'; }, 3500);
-          }
-        });
-      }
-
-      /* Pré-sélection univers depuis URL (?univers=events) */
-      const params = new URLSearchParams(window.location.search);
-      const univers = params.get('univers');
-      if (univers) {
-        const sel = document.getElementById('f-select');
-        if (sel) {
-          const map = {
-            events:   'Événements Privés',
-            tables:   "Tables d'Exception",
-            lifestyle:'Lifestyle',
-            voyages:  'Voyages Sur-Mesure',
-          };
-          const val = map[univers];
-          if (val) {
-            Array.from(sel.options).forEach(o => { if (o.value === val || o.text === val) o.selected = true; });
-          }
+    /* ── Pré-sélection univers depuis URL (?univers=events) ── */
+    const urlParams = new URLSearchParams(window.location.search);
+    const univers   = urlParams.get('univers');
+    if (univers) {
+      const sel = document.getElementById('f-select');
+      if (sel) {
+        const mapFr = { events: 'Événements Privés', tables: "Tables d'Exception", lifestyle: 'Lifestyle', voyages: 'Voyages Sur-Mesure' };
+        const mapEn = { events: 'Private Events',    tables: 'Tables of Excellence', lifestyle: 'Lifestyle', voyages: 'Bespoke Travel' };
+        const val = (currentLang === 'en' ? mapEn : mapFr)[univers];
+        if (val) {
+          Array.from(sel.options).forEach(o => { if (o.value === val || o.text === val) o.selected = true; });
         }
       }
-    })();
+    }
+
+    /* ── i18n ── */
+    const PAGE = '/contact';
+    const T = {
+      fr: {
+        'nav.univers': 'Nos Univers', 'nav.maison': 'La Maison', 'nav.galerie': 'Galerie',
+        'nav.cta': 'Demande Privée', 'nav.contact': 'Contact',
+        'ct.kicker':   '— Demande Privée',
+        'ct.title':    "L'exception<br /><em>commence ici.</em>",
+        'ct.label':    '— Demande Privée',
+        'ct.subtitle': 'Imaginer votre<br /><em>expérience avec nous.</em>',
+        'ct.body':     'Une demande confidentielle, une envie précise ou une occasion à célébrer. Nous vous répondons avec discrétion sous 24h.',
+        'ct.live':     'Disponible pour demandes privées',
+        'ct.coords':   'Coordonnées',
+        'f.prenom': 'Prénom', 'f.nom': 'Nom', 'f.email': 'Email',
+        'f.tel': 'Téléphone', 'f.univers': 'Univers', 'f.message': 'Votre demande',
+        'f.opt1': 'Événements Privés', 'f.opt2': "Tables d'Exception",
+        'f.opt3': 'Lifestyle', 'f.opt4': 'Voyages Sur-Mesure',
+        'f.send': 'Envoyer',
+        'ft.cats': 'Événements · Tables · Lifestyle · Voyages',
+      },
+      en: {
+        'nav.univers': 'Our World', 'nav.maison': 'The House', 'nav.galerie': 'Gallery',
+        'nav.cta': 'Private Request', 'nav.contact': 'Contact',
+        'ct.kicker':   '— Private Request',
+        'ct.title':    'Excellence<br /><em>begins here.</em>',
+        'ct.label':    '— Private Request',
+        'ct.subtitle': 'Imagine your<br /><em>experience with us.</em>',
+        'ct.body':     'A confidential inquiry, a precise desire or an occasion to celebrate. We respond with absolute discretion within 24 hours.',
+        'ct.live':     'Available for private requests',
+        'ct.coords':   'Contact Details',
+        'f.prenom': 'First Name', 'f.nom': 'Last Name', 'f.email': 'Email',
+        'f.tel': 'Phone', 'f.univers': 'Universe', 'f.message': 'Your request',
+        'f.opt1': 'Private Events', 'f.opt2': 'Tables of Excellence',
+        'f.opt3': 'Lifestyle', 'f.opt4': 'Bespoke Travel',
+        'f.send': 'Send',
+        'ft.cats': 'Events · Tables · Lifestyle · Travel',
+      }
+    };
+
+    let currentLang = window.location.pathname.startsWith('/en/') || window.location.pathname === '/en' ? 'en' : 'fr';
+
+    function applyLang(l) {
+      currentLang = l;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const v = T[l][el.getAttribute('data-i18n')];
+        if (v !== undefined) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const v = T[l][el.getAttribute('data-i18n-html')];
+        if (v !== undefined) el.innerHTML = v;
+      });
+      document.querySelectorAll('[data-i18n-opt]').forEach(el => {
+        const v = T[l][el.getAttribute('data-i18n-opt')];
+        if (v !== undefined) el.textContent = v;
+      });
+      document.getElementById('html-root').lang = l;
+      const path = l === 'en' ? `/en${PAGE}` : PAGE;
+      if (window.location.pathname !== path) history.pushState({ lang: l }, '', path);
+      const can = document.getElementById('canonical-tag');
+      if (can) can.href = `https://maisonchalambert.com${path}`;
+      document.querySelectorAll('.ls-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-set-lang') === l));
+    }
+
+    document.querySelectorAll('.ls-btn').forEach(b => b.addEventListener('click', () => {
+      const l = b.getAttribute('data-set-lang');
+      if (l !== currentLang) applyLang(l);
+    }));
+    window.addEventListener('popstate', e => applyLang(e.state?.lang ?? (window.location.pathname.startsWith('/en') ? 'en' : 'fr')));
+    applyLang(currentLang);
+  })();
   </script>
 
 </body>
