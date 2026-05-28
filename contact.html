@@ -274,6 +274,8 @@
             <option data-i18n-opt="f.opt2">Tables d'Exception</option>
             <option data-i18n-opt="f.opt3">Lifestyle</option>
             <option data-i18n-opt="f.opt4">Voyages Sur-Mesure</option>
+            <option data-i18n-opt="f.opt5">Presse / Partenariat</option>
+            <option data-i18n-opt="f.opt6">Autres demandes</option>
           </select>
         </div>
 
@@ -388,14 +390,14 @@
         const sendingText   = currentLang === 'en' ? '…' : '…';
         btnSpan.textContent = sendingText;
 
-        const params = new URLSearchParams();
-        new FormData(form).forEach((val, key) => params.append(key, val));
+        const data = {};
+        new FormData(form).forEach((val, key) => { data[key] = val; });
 
         try {
           const res = await fetch(FORMSPARK, {
             method:  'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body:    params.toString(),
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body:    JSON.stringify(data),
           });
           if (res.ok) {
             btnSpan.textContent = currentLang === 'en' ? 'Message sent ✓' : 'Message envoyé ✓';
@@ -450,6 +452,7 @@
         'f.tel': 'Téléphone', 'f.univers': 'Univers', 'f.message': 'Votre demande',
         'f.opt1': 'Événements Privés', 'f.opt2': "Tables d'Exception",
         'f.opt3': 'Lifestyle', 'f.opt4': 'Voyages Sur-Mesure',
+        'f.opt5': 'Presse / Partenariat', 'f.opt6': 'Autres demandes',
         'f.send': 'Envoyer',
         'ft.cats': 'Événements · Tables · Lifestyle · Voyages',
       },
@@ -467,6 +470,7 @@
         'f.tel': 'Phone', 'f.univers': 'Universe', 'f.message': 'Your request',
         'f.opt1': 'Private Events', 'f.opt2': 'Tables of Excellence',
         'f.opt3': 'Lifestyle', 'f.opt4': 'Bespoke Travel',
+        'f.opt5': 'Press / Partnership', 'f.opt6': 'Other enquiries',
         'f.send': 'Send',
         'ft.cats': 'Events · Tables · Lifestyle · Travel',
       }
