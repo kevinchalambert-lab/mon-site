@@ -64,23 +64,23 @@ input, textarea, select { font-family: var(--sans); }
 
 .pl-rule {
   width: 0; height: 1px;
-  background: rgba(245,240,230,.14);
+  background: rgba(245,240,230,.22);
   animation: pl-rule 1s cubic-bezier(0.16,1,0.3,1) 0.12s both;
 }
-@keyframes pl-rule { to { width: 32px; } }
+@keyframes pl-rule { to { width: 52px; } }
 
-.pl-wrap { overflow: hidden; padding: 4px 0; }
+.pl-wrap { overflow: hidden; padding: 6px 0; }
 .pl-logo {
   display: block;
   font-family: var(--sans);
   font-weight: 200;
-  font-size: clamp(.7rem, 1.5vw, .88rem);
-  letter-spacing: .68em;
+  font-size: clamp(1rem, 2.2vw, 1.28rem);
+  letter-spacing: .55em;
   text-transform: uppercase;
-  color: rgba(245,240,230,.76);
+  color: rgba(245,240,230,.94);
   transform: translateY(120%);
   animation: pl-up 1.15s cubic-bezier(0.16,1,0.3,1) 0.42s both;
-  padding-right: .68em;
+  padding-right: .55em;
 }
 @keyframes pl-up { to { transform: translateY(0); } }
 
