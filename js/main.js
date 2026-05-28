@@ -620,6 +620,20 @@
 
     // html lang attribute
     document.getElementById('html-root').lang = lang;
+
+    // URL — pushState sans rechargement (SEO + partage de lien)
+    const targetPath = lang === 'en' ? '/en' : '/';
+    if (window.location.pathname !== targetPath) {
+      history.pushState({ lang }, '', targetPath);
+    }
+
+    // Canonical — mis à jour dynamiquement pour chaque langue
+    const canonical = document.getElementById('canonical-tag');
+    if (canonical) {
+      canonical.href = lang === 'en'
+        ? 'https://maisonchalambert.com/en'
+        : 'https://maisonchalambert.com/';
+    }
   }
 
   // Lang switch buttons
@@ -629,6 +643,18 @@
       if (lang !== currentLang) applyLang(lang);
     });
   });
+
+  // Bouton retour / avance du navigateur
+  window.addEventListener('popstate', e => {
+    const lang = e.state?.lang
+      ?? (window.location.pathname === '/en' ? 'en' : 'fr');
+    applyLang(lang);
+  });
+
+  // Détection de langue à l'arrivée directe sur /en
+  if (window.location.pathname === '/en' || window.location.pathname === '/en/') {
+    applyLang('en');
+  }
 
   /* ══════════════════════════════════════════════
      GALERIE — Slider horizontal ultra-fluide
