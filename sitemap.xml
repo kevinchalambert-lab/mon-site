@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ══ Accueil ══════════════════════════════════════ -->
+  <url>
+    <loc>https://maisonchalambert.com/</loc>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://maisonchalambert.com/"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://maisonchalambert.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maisonchalambert.com/"/>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://maisonchalambert.com/en</loc>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://maisonchalambert.com/"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://maisonchalambert.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maisonchalambert.com/"/>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ══ Événements Privés ════════════════════════════ -->
+  <url>
+    <loc>https://maisonchalambert.com/event</loc>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://maisonchalambert.com/event"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://maisonchalambert.com/en/event"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maisonchalambert.com/event"/>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://maisonchalambert.com/en/event</loc>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://maisonchalambert.com/event"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://maisonchalambert.com/en/event"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maisonchalambert.com/event"/>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ══ Tables d'Exception ══════════════════════════ -->
+  <url>
+    <loc>https://maisonchalambert.com/tables</loc>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://maisonchalambert.com/tables"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://maisonchalambert.com/en/tables"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maisonchalambert.com/tables"/>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://maisonchalambert.com/en/tables</loc>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://maisonchalambert.com/tables"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://maisonchalambert.com/en/tables"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maisonchalambert.com/tables"/>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ══ Lifestyle Privilège ══════════════════════════ -->
+  <url>
+    <loc>https://maisonchalambert.com/lifestyle</loc>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://maisonchalambert.com/lifestyle"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://maisonchalambert.com/en/lifestyle"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maisonchalambert.com/lifestyle"/>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://maisonchalambert.com/en/lifestyle</loc>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://maisonchalambert.com/lifestyle"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://maisonchalambert.com/en/lifestyle"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maisonchalambert.com/lifestyle"/>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ══ Voyages Sur-Mesure ════════════════════════════ -->
+  <url>
+    <loc>https://maisonchalambert.com/voyages</loc>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://maisonchalambert.com/voyages"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://maisonchalambert.com/en/voyages"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maisonchalambert.com/voyages"/>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://maisonchalambert.com/en/voyages</loc>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://maisonchalambert.com/voyages"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://maisonchalambert.com/en/voyages"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maisonchalambert.com/voyages"/>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ══ Contact ══════════════════════════════════════ -->
+  <url>
+    <loc>https://maisonchalambert.com/contact</loc>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://maisonchalambert.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://maisonchalambert.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maisonchalambert.com/contact"/>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://maisonchalambert.com/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://maisonchalambert.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://maisonchalambert.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maisonchalambert.com/contact"/>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
