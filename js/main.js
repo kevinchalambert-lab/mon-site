@@ -333,14 +333,14 @@
       btn.disabled        = true;
       btnSpan.textContent = currentLang === 'en' ? 'Sending…' : 'Transmission en cours…';
 
-      const data = {};
-      new FormData(form).forEach((val, key) => { data[key] = val; });
+      const params = new URLSearchParams();
+      new FormData(form).forEach((val, key) => params.append(key, val));
 
       try {
         const res = await fetch(FORMSPARK, {
           method:  'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body:    JSON.stringify(data),
+          headers: { 'Accept': 'application/json' },
+          body:    params,
         });
 
         if (res.ok) {
@@ -359,15 +359,18 @@
             }
           }, 600);
         } else {
+          const body = await res.text().catch(() => '');
+          console.error('Formspark HTTP', res.status, body);
           throw new Error('HTTP ' + res.status);
         }
       } catch (err) {
-        console.error('Formspark :', err);
-        btnSpan.textContent = currentLang === 'en' ? 'Error — please retry' : 'Erreur — réessayez';
+        console.error('Formspark :', err.message);
+        const detail = err.message || 'réseau';
+        btnSpan.textContent = currentLang === 'en' ? `Error (${detail})` : `Erreur (${detail})`;
         btn.disabled        = false;
         setTimeout(() => {
           btnSpan.textContent = currentLang === 'en' ? 'Send' : 'Envoyer';
-        }, 3500);
+        }, 6000);
       }
     });
   }
