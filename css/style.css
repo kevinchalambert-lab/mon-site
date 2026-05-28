@@ -56,27 +56,33 @@ input, textarea, select { font-family: var(--sans); }
   position: fixed; inset: 0;
   background: var(--ink);
   z-index: 10000;
-  display: flex; align-items: center; justify-content: center;
-  transition: opacity 1.2s var(--ease-s), visibility 1.2s;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 20px;
+  transition: opacity 1.6s cubic-bezier(0.4,0,0.2,1), visibility 1.6s;
 }
 #preloader.off { opacity: 0; visibility: hidden; pointer-events: none; }
 
-.pl-logo {
-  font-family: var(--sans);
-  font-weight: 300;
-  font-size: clamp(1rem, 2.8vw, 1.5rem);
-  letter-spacing: .55em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.85);
-  animation: pl-in 1.4s var(--ease) both;
-  transition: transform 1.2s var(--ease-s);
+.pl-rule {
+  width: 0; height: 1px;
+  background: rgba(245,240,230,.14);
+  animation: pl-rule 1s cubic-bezier(0.16,1,0.3,1) 0.12s both;
 }
-#preloader.off .pl-logo { transform: scale(1.22); }
+@keyframes pl-rule { to { width: 32px; } }
 
-@keyframes pl-in {
-  from { opacity: 0; letter-spacing: .28em; }
-  to   { opacity: 1; letter-spacing: .55em; }
+.pl-wrap { overflow: hidden; padding: 4px 0; }
+.pl-logo {
+  display: block;
+  font-family: var(--sans);
+  font-weight: 200;
+  font-size: clamp(.7rem, 1.5vw, .88rem);
+  letter-spacing: .68em;
+  text-transform: uppercase;
+  color: rgba(245,240,230,.76);
+  transform: translateY(120%);
+  animation: pl-up 1.15s cubic-bezier(0.16,1,0.3,1) 0.42s both;
+  padding-right: .68em;
 }
+@keyframes pl-up { to { transform: translateY(0); } }
 
 
 /* ══════════════════════════════════════════════════

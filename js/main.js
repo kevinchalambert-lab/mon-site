@@ -25,8 +25,8 @@
   setTimeout(() => {
     preloader.classList.add('off');
     document.body.style.overflow = '';
-    setTimeout(initHeroEntrance, 300);
-  }, 2400);
+    setTimeout(initHeroEntrance, 400);
+  }, 2600);
 
   /* ══════════════════════════════════════════════
      HERO ENTRANCE — bottom-left staggered
