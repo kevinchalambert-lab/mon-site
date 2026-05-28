@@ -8,13 +8,13 @@
 :root {
   --ink:       #0A0908;
   --ink-soft:  #141210;
-  --cream:     #F7F5F0;
-  --cream-2:   #EFECE5;
-  --stone:     #BEB9B1;
+  --cream:     #EAE5DB;
+  --cream-2:   #DED9CF;
+  --stone:     #B8B3AB;
   --mist:      #7A7570;
-  --border-l:  #E2DCD4;
+  --border-l:  #CBC5BB;
   --border-d:  rgba(255,255,255,0.07);
-  --white:     #FFFFFF;
+  --white:     #EAE5DB;
 
   --serif: 'Cormorant Garamond', 'Times New Roman', serif;
   --sans:  'Jost', sans-serif;
@@ -177,8 +177,8 @@ input, textarea, select { font-family: var(--sans); }
   white-space: nowrap;
 }
 .n-cta:hover {
-  background: #fff; color: var(--ink);
-  border-color: #fff; transform: translateY(-1px);
+  background: var(--cream); color: var(--ink);
+  border-color: var(--cream); transform: translateY(-1px);
 }
 
 /* Mobile nav */
@@ -1051,7 +1051,7 @@ input, textarea, select { font-family: var(--sans); }
   display: inline-flex; align-items: center; gap: 14px;
   font-size: .66rem; font-weight: 300;
   letter-spacing: .3em; text-transform: uppercase;
-  color: var(--ink); background: rgba(255,255,255,.96);
+  color: var(--ink); background: rgba(224,216,204,.96);
   padding: 18px 44px; margin-top: 8px;
   transition: background .35s, transform .35s, opacity .3s;
 }
