@@ -301,7 +301,7 @@
      FORM SUBMIT — AJAX vers Formspark (sans redirection)
      Envoi JSON en arrière-plan, le client reste sur la page.
   ══════════════════════════════════════════════ */
-  const FORMSPARK = 'https://submit-form.com/17WH4ev1n';
+  const FORMSPARK = 'https://submit-form.com/l7WH4ev1n';
 
   const FORM_SUCCESS_MSG = {
     fr: 'Votre demande a été confiée à nos équipes. Nous vous répondrons avec la plus grande discrétion sous 24 heures.',
