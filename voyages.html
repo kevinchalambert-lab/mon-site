@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fr" id="html-root">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voyages Sur-Mesure — Maison Chalambert</title>
+  <meta name="description" content="Maison Chalambert conçoit des voyages d'exception entièrement sur-mesure — jets privés, superyachts, îles privées, villas cachées, safaris en lodges privés et expéditions exclusives." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://maisonchalambert.com/voyages" id="canonical-tag" />
+  <link rel="alternate" hreflang="fr" href="https://maisonchalambert.com/voyages" />
+  <link rel="alternate" hreflang="en" href="https://maisonchalambert.com/en/voyages" />
+
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://maisonchalambert.com/voyages" />
+  <meta property="og:title"       content="Voyages Sur-Mesure — Maison Chalambert" />
+  <meta property="og:image"       content="https://maisonchalambert.com/assets/images/jet-prive.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <style>
+    .ev-hero { position:relative; height:100vh; min-height:640px; display:flex; align-items:flex-end; overflow:hidden; }
+    .ev-hero-bg { position:absolute; inset:0; }
+    .ev-hero-bg img { width:100%; height:100%; object-fit:cover; object-position:center 45%; filter:brightness(.42) saturate(.6); transform:scale(1.07); animation:ev-zoom 16s cubic-bezier(.4,0,.2,1) forwards; }
+    @keyframes ev-zoom { to { transform:scale(1); } }
+    .ev-hero-veil { position:absolute; inset:0; background:linear-gradient(to top, rgba(10,9,8,.94) 0%, rgba(10,9,8,.3) 58%, rgba(10,9,8,.06) 100%); }
+    .ev-hero-content { position:relative; z-index:2; padding:0 80px 96px; }
+    .ev-hero-kicker { font-family:var(--sans); font-size:.6rem; font-weight:300; letter-spacing:.28em; text-transform:uppercase; color:rgba(245,240,230,.45); display:block; margin-bottom:28px; }
+    .ev-hero-title { font-family:var(--serif); font-size:clamp(3.4rem,9vw,7.5rem); font-weight:300; line-height:.96; color:#f5f0e6; margin:0 0 28px; }
+    .ev-hero-sub { font-family:var(--serif); font-size:clamp(1.05rem,2vw,1.45rem); font-weight:300; font-style:italic; color:rgba(245,240,230,.68); margin:0; }
+    .ev-scroll-hint { position:absolute; bottom:38px; right:80px; z-index:2; display:flex; align-items:center; gap:14px; font-family:var(--sans); font-size:.56rem; letter-spacing:.22em; text-transform:uppercase; color:rgba(245,240,230,.3); }
+    .ev-scroll-hint::before { content:''; display:block; width:36px; height:1px; background:rgba(245,240,230,.2); }
+
+    .ev-manifesto { padding:144px 0 128px; display:flex; flex-direction:column; align-items:center; }
+    .ev-m-inner { max-width:760px; padding:0 48px; text-align:center; }
+    .ev-m-label { font-family:var(--sans); font-size:.6rem; font-weight:300; letter-spacing:.28em; text-transform:uppercase; color:rgba(245,240,230,.38); display:block; margin-bottom:52px; }
+    .ev-m-rule { width:40px; height:1px; background:rgba(245,240,230,.18); margin:0 auto 52px; }
+    .ev-m-quote { font-family:var(--serif); font-size:clamp(1.45rem,2.8vw,2.1rem); font-weight:300; line-height:1.5; color:#f5f0e6; margin:0 0 48px; }
+    .ev-m-body { font-family:var(--sans); font-size:.88rem; font-weight:300; line-height:1.95; color:rgba(245,240,230,.6); margin:0 0 22px; }
+    .ev-m-body:last-child { margin-bottom:0; }
+
+    .ev-pillars { padding:108px 0 120px; border-top:1px solid rgba(245,240,230,.06); }
+    .ev-pillars-inner { max-width:1160px; margin:0 auto; padding:0 80px; display:grid; grid-template-columns:5fr 7fr; gap:0; }
+    .ev-pillar { padding:0 80px 0 0; }
+    .ev-pillar+.ev-pillar { padding:0 0 0 80px; border-left:1px solid rgba(245,240,230,.07); }
+    .ev-pillar-num { font-family:var(--serif); font-size:4rem; font-weight:300; color:rgba(245,240,230,.06); line-height:1; margin-bottom:-12px; }
+    .ev-pillar-label { font-family:var(--sans); font-size:.58rem; font-weight:300; letter-spacing:.24em; text-transform:uppercase; color:rgba(245,240,230,.35); margin-bottom:18px; }
+    .ev-pillar-title { font-family:var(--serif); font-size:clamp(1.85rem,3vw,2.6rem); font-weight:300; line-height:1.1; color:#f5f0e6; margin:0 0 14px; }
+    .ev-pillar-sub { font-family:var(--sans); font-size:.68rem; font-weight:300; letter-spacing:.14em; text-transform:uppercase; color:rgba(245,240,230,.35); margin:0 0 26px; }
+    .ev-pillar-desc { font-family:var(--sans); font-size:.87rem; font-weight:300; line-height:1.92; color:rgba(245,240,230,.58); }
+
+    .ev-gallery { padding:108px 0 120px; border-top:1px solid rgba(245,240,230,.06); }
+    .ev-gallery-inner { max-width:1160px; margin:0 auto; padding:0 80px; }
+    .ev-gallery-label { font-family:var(--sans); font-size:.6rem; font-weight:300; letter-spacing:.28em; text-transform:uppercase; color:rgba(245,240,230,.38); display:block; margin-bottom:52px; }
+    .ev-gallery-grid { display:grid; grid-template-columns:1.45fr 1fr; grid-template-rows:272px 272px; gap:16px; }
+    .ev-gallery-item { overflow:hidden; position:relative; }
+    .ev-gallery-item:first-child { grid-row:1/3; }
+    .ev-gallery-item img { width:100%; height:100%; object-fit:cover; display:block; filter:brightness(.82) saturate(.8); transform:scale(1); transition:transform 1.5s cubic-bezier(.16,1,.3,1), filter 1.5s cubic-bezier(.16,1,.3,1); }
+    .ev-gallery-item:hover img { transform:scale(1.055); filter:brightness(.94) saturate(.9); }
+    .ev-gallery-caption { margin-top:14px; }
+    .ev-gallery-cap-cat { font-family:var(--sans); font-size:.56rem; font-weight:300; letter-spacing:.2em; text-transform:uppercase; color:rgba(245,240,230,.38); display:block; margin-bottom:4px; }
+    .ev-gallery-cap-title { font-family:var(--serif); font-size:1rem; font-style:italic; color:rgba(245,240,230,.55); }
+
+    .ev-cta { padding:148px 0 160px; display:flex; flex-direction:column; align-items:center; text-align:center; border-top:1px solid rgba(245,240,230,.06); }
+    .ev-cta-label { font-family:var(--sans); font-size:.6rem; font-weight:300; letter-spacing:.28em; text-transform:uppercase; color:rgba(245,240,230,.38); margin-bottom:40px; }
+    .ev-cta-title { font-family:var(--serif); font-size:clamp(2.1rem,5vw,4rem); font-weight:300; line-height:1.18; color:#f5f0e6; max-width:700px; margin:0 0 56px; }
+    .ev-cta-btn { display:inline-flex; align-items:center; gap:14px; font-family:var(--sans); font-size:.66rem; font-weight:300; letter-spacing:.3em; text-transform:uppercase; color:var(--ink,#0a0908); background:rgba(245,240,230,.96); padding:18px 48px; text-decoration:none; transition:background .35s, transform .35s; }
+    .ev-cta-btn:hover { background:#f5f0e6; transform:translateY(-2px); }
+    .ev-cta-btn svg { transition:transform .35s; }
+    .ev-cta-btn:hover svg { transform:translateX(5px); }
+
+    @media (max-width:860px) {
+      .ev-hero-content { padding:0 32px 80px; }
+      .ev-scroll-hint { display:none; }
+      .ev-m-inner { padding:0 28px; }
+      .ev-manifesto { padding:100px 0 88px; }
+      .ev-pillars { padding:80px 0 88px; }
+      .ev-pillars-inner { grid-template-columns:1fr; gap:0; padding:0 32px; }
+      .ev-pillar { padding:0; }
+      .ev-pillar+.ev-pillar { border-left:none; border-top:1px solid rgba(245,240,230,.07); padding:56px 0 0; margin-top:56px; }
+      .ev-gallery { padding:80px 0 88px; }
+      .ev-gallery-inner { padding:0 32px; }
+      .ev-gallery-grid { grid-template-columns:1fr; grid-template-rows:auto; gap:14px; }
+      .ev-gallery-item:first-child { grid-row:auto; }
+      .ev-gallery-item img { height:280px; }
+      .ev-cta { padding:100px 32px 112px; }
+    }
+    @media (max-width:480px) { .ev-gallery-item img { height:240px; } }
+  </style>
+</head>
+<body>
+
+  <header id="nav" class="solid">
+    <div class="nav-left">
+      <a href="/#univers" class="n-link" data-i18n="nav.univers">Nos Univers</a>
+      <a href="/#maison"  class="n-link" data-i18n="nav.maison">La Maison</a>
+    </div>
+    <a href="/" class="n-logo">MAISON CHALAMBERT</a>
+    <div class="nav-right">
+      <a href="/#galerie" class="n-link" data-i18n="nav.galerie">Galerie</a>
+      <div class="lang-sw">
+        <button class="ls-btn active" data-set-lang="fr">FR</button>
+        <span class="ls-sep">|</span>
+        <button class="ls-btn" data-set-lang="en">EN</button>
+      </div>
+      <a href="/contact" class="n-cta" data-i18n="nav.cta">Demande Privée</a>
+    </div>
+    <a href="/" class="n-logo-mobile">MAISON CHALAMBERT</a>
+    <button id="burger" aria-label="Menu"><span></span><span></span></button>
+  </header>
+
+  <div id="nav-overlay">
+    <a href="/#univers" class="no-link" data-i18n="nav.univers">Nos Univers</a>
+    <a href="/#maison"  class="no-link" data-i18n="nav.maison">La Maison</a>
+    <a href="/#galerie" class="no-link" data-i18n="nav.galerie">Galerie</a>
+    <a href="/contact"  class="no-link" data-i18n="nav.contact">Contact</a>
+  </div>
+
+  <!-- ══ HERO ══════════════════════════════════ -->
+  <section class="ev-hero">
+    <div class="ev-hero-bg">
+      <img src="/assets/images/jet-prive.jpg" alt="Voyages sur-mesure d'exception — Maison Chalambert" />
+    </div>
+    <div class="ev-hero-veil"></div>
+    <div class="ev-hero-content">
+      <span class="ev-hero-kicker" data-i18n="vg.kicker">— Nos Univers</span>
+      <h1 class="ev-hero-title" data-i18n-html="vg.title">Voyages<br />Sur-Mesure</h1>
+      <p class="ev-hero-sub" data-i18n="vg.sub">Nulle part où vous n'ayez demandé à aller.</p>
+    </div>
+    <div class="ev-scroll-hint" data-i18n="vg.scroll">Scroll</div>
+  </section>
+
+  <!-- ══ MANIFESTO ══════════════════════════════ -->
+  <section class="ev-manifesto">
+    <div class="ev-m-inner">
+      <span class="ev-m-label reveal" data-i18n="m.label">— Manifesto</span>
+      <div class="ev-m-rule reveal" style="--d:60ms"></div>
+      <p class="ev-m-quote reveal" style="--d:120ms" data-i18n="m.quote">Un voyage sur-mesure ne s'organise pas. Il se conçoit. Comme une œuvre, il naît d'un désir unique — le vôtre — et s'achève dans une réalité que vous n'imaginiez pas possible.</p>
+      <p class="ev-m-body reveal" style="--d:200ms" data-i18n="m.body1">Jet privé affrété à l'heure que vous choisissez, transfert en hélicoptère depuis le tarmac, superyacht avec équipage au complet, villa cachée à flanc de montagne ou île privée réservée pour vous seuls : nous orchestrons l'intégralité de la logistique pour que la sérénité commence avant même de partir.</p>
+      <p class="ev-m-body reveal" style="--d:280ms" data-i18n="m.body2">Safari dans un lodge privé au bout de l'Afrique, expédition secrète en Islande, guide d'élite pour une traversée de la médina à l'aube, dîner sur une plage inaccessible : chaque itinéraire est une création unique, pensée dans les moindres détails selon votre personnalité, votre rythme et vos seules envies.</p>
+    </div>
+  </section>
+
+  <!-- ══ DEUX PILIERS ════════════════════════════ -->
+  <section class="ev-pillars">
+    <div class="ev-pillars-inner">
+
+      <div class="ev-pillar reveal">
+        <div class="ev-pillar-num">01</div>
+        <p class="ev-pillar-label" data-i18n="p1.label">Particuliers &amp; HNWI</p>
+        <h2 class="ev-pillar-title" data-i18n-html="p1.title">L'Évasion<br />Sans Friction</h2>
+        <p class="ev-pillar-sub" data-i18n="p1.sub">Jets Privés · Superyachts · Îles · Villas</p>
+        <p class="ev-pillar-desc" data-i18n="p1.desc">Jet privé à l'heure souhaitée, hélicoptère depuis l'aéroport jusqu'à la villa, superyacht avec équipage et chef à bord, chauffeurs de maître disponibles 24h/24. Propriétés extraordinaires introuvables en ligne : chalets d'exception à Megève ou Courchevel, villas cachées en Toscane, îles privées aux Maldives. Chaque déplacement est pensé pour que la sérénité commence dès la première seconde.</p>
+      </div>
+
+      <div class="ev-pillar reveal" style="--d:120ms">
+        <div class="ev-pillar-num">02</div>
+        <p class="ev-pillar-label" data-i18n="p2.label">Expériences &amp; Immersion</p>
+        <h2 class="ev-pillar-title" data-i18n-html="p2.title">Le Monde<br />Autrement</h2>
+        <p class="ev-pillar-sub" data-i18n="p2.sub">Safaris · Expéditions · Guides d'Élite</p>
+        <p class="ev-pillar-desc" data-i18n="p2.desc">Safaris haut de gamme dans des lodges privés au cœur de la brousse africaine, expéditions secrètes dans des destinations off-piste, accès à des guides locaux d'exception qui vous emmènent là où les circuits n'existent pas. Des expériences immersives conçues pour révéler un territoire dans toute son authenticité — avec tout le confort qui devrait y être, sans jamais le compromettre.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ GALERIE ════════════════════════════════ -->
+  <section class="ev-gallery">
+    <div class="ev-gallery-inner">
+      <span class="ev-gallery-label reveal" data-i18n="g.label">— En Images</span>
+      <div class="ev-gallery-grid">
+
+        <div class="ev-gallery-item reveal-img">
+          <img src="/assets/images/yacht-terrace.jpg" alt="Superyacht de luxe Méditerranée — Maison Chalambert" loading="lazy" />
+          <div class="ev-gallery-caption">
+            <span class="ev-gallery-cap-cat" data-i18n="g1.cat">Superyacht</span>
+            <span class="ev-gallery-cap-title" data-i18n="g1.title">En Mer, Côte d'Azur</span>
+          </div>
+        </div>
+
+        <div class="ev-gallery-item reveal-img" style="--d:100ms">
+          <img src="/assets/images/jet-prive.jpg" alt="Jet privé affrètement sur-mesure — Maison Chalambert" loading="lazy" />
+          <div class="ev-gallery-caption">
+            <span class="ev-gallery-cap-cat" data-i18n="g2.cat">Transport Privé</span>
+            <span class="ev-gallery-cap-title" data-i18n="g2.title">Jet Privé, Sur-Mesure</span>
+          </div>
+        </div>
+
+        <div class="ev-gallery-item reveal-img" style="--d:200ms">
+          <img src="/assets/images/escapade-privee.jpg" alt="Évasion privée villa exclusive — Maison Chalambert" loading="lazy" />
+          <div class="ev-gallery-caption">
+            <span class="ev-gallery-cap-cat" data-i18n="g3.cat">Évasion Privée</span>
+            <span class="ev-gallery-cap-title" data-i18n="g3.title">Villa Exclusive, Toscane</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA ═══════════════════════════════════ -->
+  <section class="ev-cta">
+    <p class="ev-cta-label reveal" data-i18n="cta.label">— Votre prochain horizon</p>
+    <h2 class="ev-cta-title reveal" style="--d:80ms" data-i18n-html="cta.title">Concevoir votre<br /><em>prochain voyage.</em></h2>
+    <a href="/contact?univers=voyages" class="ev-cta-btn reveal" style="--d:180ms">
+      <span data-i18n="cta.btn">Initier une demande de voyage</span>
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </section>
+
+  <!-- ══ FOOTER ════════════════════════════════ -->
+  <footer id="footer">
+    <div class="ft-marquee-wrap"><div class="ft-marquee">
+      <span>RIEN N'EST TROP EXCEPTIONNEL &nbsp;·&nbsp; </span>
+      <span>RIEN N'EST TROP EXCEPTIONNEL &nbsp;·&nbsp; </span>
+      <span>RIEN N'EST TROP EXCEPTIONNEL &nbsp;·&nbsp; </span>
+      <span>RIEN N'EST TROP EXCEPTIONNEL &nbsp;·&nbsp; </span>
+      <span>RIEN N'EST TROP EXCEPTIONNEL &nbsp;·&nbsp; </span>
+      <span>RIEN N'EST TROP EXCEPTIONNEL &nbsp;·&nbsp; </span>
+    </div></div>
+    <div class="ft-bottom">
+      <span class="ft-name">MAISON CHALAMBERT</span>
+      <span class="ft-cats" data-i18n="ft.cats">Événements · Tables · Lifestyle · Voyages</span>
+      <div class="ft-links">
+        <a href="/mentions-legales">Mentions légales</a>
+        <a href="/confidentialite">Confidentialité</a>
+        <a href="mailto:contact@maisonchalambert.com">Contact</a>
+      </div>
+      <span class="ft-copy">&copy; 2026</span>
+    </div>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/33778253980?text=Bonjour%20Maison%20Chalambert%2C%20je%20souhaite%20initier%20une%20demande%20priv%C3%A9e." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script>
+  (() => {
+    'use strict';
+
+    /* ── Nav ── */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('solid', window.scrollY > 60), { passive: true });
+
+    /* ── Burger ── */
+    const burger = document.getElementById('burger'), overlay = document.getElementById('nav-overlay');
+    let menuOpen = false;
+    if (burger && overlay) {
+      const toggle = (f = null) => { menuOpen = f !== null ? f : !menuOpen; burger.classList.toggle('open', menuOpen); overlay.classList.toggle('open', menuOpen); document.body.style.overflow = menuOpen ? 'hidden' : ''; };
+      burger.addEventListener('click', () => toggle());
+      overlay.querySelectorAll('.no-link').forEach(l => l.addEventListener('click', () => toggle(false)));
+    }
+
+    /* ── Reveals ── */
+    const obs = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    }), { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal, .reveal-img').forEach(el => obs.observe(el));
+
+    /* ── Marquee ── */
+    const mq = document.querySelector('.ft-marquee');
+    if (mq) {
+      mq.addEventListener('mouseenter', () => mq.style.animationPlayState = 'paused');
+      mq.addEventListener('mouseleave', () => mq.style.animationPlayState = 'running');
+    }
+
+    /* ── i18n ── */
+    const PAGE = '/voyages';
+    const T = {
+      fr: {
+        'nav.univers': 'Nos Univers', 'nav.maison': 'La Maison', 'nav.galerie': 'Galerie',
+        'nav.cta': 'Demande Privée', 'nav.contact': 'Contact',
+        'vg.kicker': '— Nos Univers',
+        'vg.title':  'Voyages<br />Sur-Mesure',
+        'vg.sub':    'Nulle part où vous n\'ayez demandé à aller.',
+        'vg.scroll': 'Scroll',
+        'm.label': '— Manifesto',
+        'm.quote': "Un voyage sur-mesure ne s'organise pas. Il se conçoit. Comme une œuvre, il naît d'un désir unique — le vôtre — et s'achève dans une réalité que vous n'imaginiez pas possible.",
+        'm.body1': "Jet privé affrété à l'heure que vous choisissez, transfert en hélicoptère depuis le tarmac, superyacht avec équipage au complet, villa cachée à flanc de montagne ou île privée réservée pour vous seuls : nous orchestrons l'intégralité de la logistique pour que la sérénité commence avant même de partir.",
+        'm.body2': "Safari dans un lodge privé au bout de l'Afrique, expédition secrète en Islande, guide d'élite pour une traversée de la médina à l'aube, dîner sur une plage inaccessible : chaque itinéraire est une création unique, pensée dans les moindres détails selon votre personnalité, votre rythme et vos seules envies.",
+        'p1.label': 'Particuliers & HNWI',
+        'p1.title': "L'Évasion<br />Sans Friction",
+        'p1.sub':   'Jets Privés · Superyachts · Îles · Villas',
+        'p1.desc':  "Jet privé à l'heure souhaitée, hélicoptère depuis l'aéroport jusqu'à la villa, superyacht avec équipage et chef à bord, chauffeurs de maître disponibles 24h/24. Propriétés extraordinaires introuvables en ligne : chalets d'exception à Megève ou Courchevel, villas cachées en Toscane, îles privées aux Maldives. Chaque déplacement est pensé pour que la sérénité commence dès la première seconde.",
+        'p2.label': 'Expériences & Immersion',
+        'p2.title': 'Le Monde<br />Autrement',
+        'p2.sub':   "Safaris · Expéditions · Guides d'Élite",
+        'p2.desc':  "Safaris haut de gamme dans des lodges privés au cœur de la brousse africaine, expéditions secrètes dans des destinations off-piste, accès à des guides locaux d'exception qui vous emmènent là où les circuits n'existent pas. Des expériences immersives conçues pour révéler un territoire dans toute son authenticité — avec tout le confort qui devrait y être, sans jamais le compromettre.",
+        'g.label':  '— En Images',
+        'g1.cat': 'Superyacht',       'g1.title': "En Mer, Côte d'Azur",
+        'g2.cat': 'Transport Privé',  'g2.title': 'Jet Privé, Sur-Mesure',
+        'g3.cat': 'Évasion Privée',   'g3.title': 'Villa Exclusive, Toscane',
+        'cta.label': '— Votre prochain horizon',
+        'cta.title': 'Concevoir votre<br /><em>prochain voyage.</em>',
+        'cta.btn':   'Initier une demande de voyage',
+        'ft.cats': 'Événements · Tables · Lifestyle · Voyages',
+      },
+      en: {
+        'nav.univers': 'Our World', 'nav.maison': 'The House', 'nav.galerie': 'Gallery',
+        'nav.cta': 'Private Request', 'nav.contact': 'Contact',
+        'vg.kicker': '— Our Worlds',
+        'vg.title':  'Bespoke<br />Travel',
+        'vg.sub':    "Nowhere you haven't asked to go.",
+        'vg.scroll': 'Scroll',
+        'm.label': '— Manifesto',
+        'm.quote': "A bespoke journey is not organised. It is conceived. Like a work of art, it is born from a singular desire — yours — and unfolds into a reality you never thought possible.",
+        'm.body1': "A private jet chartered at your chosen departure time, helicopter transfer from the tarmac, a superyacht with full crew, a hidden mountain villa or a private island reserved for you alone: we orchestrate every logistical detail so that serenity begins before you even leave.",
+        'm.body2': "A safari in a private lodge at the far edge of Africa, a secret expedition in Iceland, an elite local guide for a dawn crossing of the medina, dinner on an unreachable beach: every itinerary is a singular creation, conceived in the finest detail around your personality, your pace and your desires alone.",
+        'p1.label': 'Private Individuals & HNWI',
+        'p1.title': 'Frictionless<br />Escape',
+        'p1.sub':   'Private Jets · Superyachts · Islands · Villas',
+        'p1.desc':  "A private jet at your chosen hour, helicopter from the airport to the villa, superyacht with crew and chef on board, chauffeurs available around the clock. Extraordinary properties unavailable online: exceptional chalets in Megève or Courchevel, hidden villas in Tuscany, private islands in the Maldives. Every transfer is designed so that serenity begins from the very first second.",
+        'p2.label': 'Experiences & Immersion',
+        'p2.title': 'The World<br />Differently',
+        'p2.sub':   'Safaris · Expeditions · Elite Guides',
+        'p2.desc':  "High-end safaris in private lodges at the heart of the African bush, secret expeditions to off-piste destinations, access to exceptional local guides who take you where circuits do not exist. Immersive experiences designed to reveal a territory in its full authenticity — with every comfort that should be there, without ever compromising it.",
+        'g.label':  '— In Pictures',
+        'g1.cat': 'Superyacht',        'g1.title': 'At Sea, Côte d\'Azur',
+        'g2.cat': 'Private Transport', 'g2.title': 'Private Jet, Bespoke',
+        'g3.cat': 'Private Escape',    'g3.title': 'Exclusive Villa, Tuscany',
+        'cta.label': '— Your next horizon',
+        'cta.title': 'Design your<br /><em>next journey.</em>',
+        'cta.btn':   'Initiate a travel request',
+        'ft.cats': 'Events · Tables · Lifestyle · Travel',
+      }
+    };
+
+    let currentLang = window.location.pathname.startsWith('/en/') ? 'en' : 'fr';
+
+    function applyLang(l) {
+      currentLang = l;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const v = T[l][el.getAttribute('data-i18n')];
+        if (v !== undefined) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const v = T[l][el.getAttribute('data-i18n-html')];
+        if (v !== undefined) el.innerHTML = v;
+      });
+      document.getElementById('html-root').lang = l;
+      const path = l === 'en' ? `/en${PAGE}` : PAGE;
+      if (window.location.pathname !== path) history.pushState({ lang: l }, '', path);
+      const can = document.getElementById('canonical-tag');
+      if (can) can.href = `https://maisonchalambert.com${path}`;
+      document.querySelectorAll('.ls-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-set-lang') === l));
+    }
+
+    document.querySelectorAll('.ls-btn').forEach(b => b.addEventListener('click', () => {
+      const l = b.getAttribute('data-set-lang');
+      if (l !== currentLang) applyLang(l);
+    }));
+    window.addEventListener('popstate', e => applyLang(e.state?.lang ?? (window.location.pathname.startsWith('/en') ? 'en' : 'fr')));
+    applyLang(currentLang);
+  })();
+  </script>
+
+</body>
+</html>
