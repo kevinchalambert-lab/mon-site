@@ -1046,6 +1046,22 @@ input, textarea, select { font-family: var(--sans); }
 .f-g select option { background: var(--ink-soft); color: #fff; }
 .f-g textarea { resize: none; }
 
+/* Validation — champ invalide */
+@keyframes f-shake {
+  0%,100% { transform: translateX(0); }
+  20%     { transform: translateX(-5px); }
+  45%     { transform: translateX(5px); }
+  65%     { transform: translateX(-3px); }
+  82%     { transform: translateX(3px); }
+}
+.f-g.f-invalid input,
+.f-g.f-invalid textarea,
+.f-g.f-invalid select {
+  border-bottom-color: rgba(205,158,90,.75);
+  animation: f-shake .4s cubic-bezier(.36,.07,.19,.97) both;
+}
+.f-g.f-invalid label { color: rgba(205,158,90,.9); transition: color .3s; }
+
 .f-btn {
   align-self: flex-start;
   display: inline-flex; align-items: center; gap: 14px;

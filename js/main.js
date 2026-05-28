@@ -298,9 +298,32 @@
   });
 
   /* ══════════════════════════════════════════════
-     FORM SUBMIT — AJAX vers Formspark (sans redirection)
-     Envoi JSON en arrière-plan, le client reste sur la page.
+     FORM — Validation + Formspark AJAX
   ══════════════════════════════════════════════ */
+  const RE_NAME  = /^[a-zA-ZÀ-ÿ\s'\-]{2,}$/;
+  const RE_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  function markInvalid(field) {
+    if (!field) return;
+    const g = field.closest('.f-g');
+    if (!g) return;
+    g.classList.remove('f-invalid');
+    void g.offsetWidth; // reflow pour relancer l'animation
+    g.classList.add('f-invalid');
+    field.addEventListener('input', () => g.classList.remove('f-invalid'), { once: true });
+  }
+
+  function validateContactForm(f) {
+    const prenom = f.querySelector('[name="prenom"]');
+    const nom    = f.querySelector('[name="nom"]');
+    const email  = f.querySelector('[name="email"]');
+    let ok = true;
+    if (!prenom || !RE_NAME.test(prenom.value.trim()))  { markInvalid(prenom); ok = false; }
+    if (nom    && !RE_NAME.test(nom.value.trim()))       { markInvalid(nom);    ok = false; }
+    if (!email || !RE_EMAIL.test(email.value.trim()))   { markInvalid(email);  ok = false; }
+    return ok;
+  }
+
   const FORMSPARK = 'https://submit-form.com/l7WH4ev1n';
 
   const FORM_SUCCESS_MSG = {
@@ -320,15 +343,8 @@
       const btnSpan = btn ? btn.querySelector('span') : null;
       if (!btn || !btnSpan) return;
 
-      // Validation — prénom + email requis
-      const prenom = form.querySelector('[name="prenom"]')?.value.trim();
-      const email  = form.querySelector('[name="email"]')?.value.trim();
-      if (!prenom || !email) {
-        btn.style.transition = 'opacity .25s';
-        btn.style.opacity    = '.35';
-        setTimeout(() => { btn.style.opacity = ''; }, 500);
-        return;
-      }
+      // Validation — prénom, nom, email
+      if (!validateContactForm(form)) return;
 
       btn.disabled        = true;
       btnSpan.textContent = currentLang === 'en' ? 'Sending…' : 'Transmission en cours…';
