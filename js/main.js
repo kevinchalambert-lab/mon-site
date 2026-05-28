@@ -471,6 +471,28 @@
       'f.opt2':  "Tables d'Exception",
       'f.opt3':  'Lifestyle',
       'f.opt4':  'Voyages Sur-Mesure',
+      // Mobile nav
+      'nav.contact': 'Contact',
+      // Galerie
+      'g.label':        '— En Images',
+      'g1.title':       'Escapade Privée',
+      'g2.title':       'Private Party',
+      'g3.title':       'Adresses Confidentielles',
+      'g4.title':       'Grand Prix de Doha',
+      'g5.title':       'Dîner Privé',
+      'g.cat.travel':   'Voyages',
+      'g.cat.events':   'Événements',
+      'g.cat.lifestyle':'Lifestyle',
+      // Expériences cards
+      'exp1.lbl': 'Dîner privé',
+      'exp2.lbl': 'Grand Prix',
+      'exp3.lbl': 'Soirée exclusive',
+      'exp4.lbl': "Séjour d'exception",
+      'exp5.lbl': "Table d'exception",
+      'exp6.lbl': 'Fashion Week',
+      // Contact live + footer
+      'c.live':  'Disponible pour demandes privées',
+      'ft.cats': 'Événements · Tables · Lifestyle · Voyages',
     },
     en: {
       // Nav
@@ -530,6 +552,28 @@
       'f.opt2':  'Exceptional Tables',
       'f.opt3':  'Lifestyle',
       'f.opt4':  'Bespoke Travel',
+      // Mobile nav
+      'nav.contact': 'Contact',
+      // Gallery
+      'g.label':        '— In Pictures',
+      'g1.title':       'Private Escape',
+      'g2.title':       'Private Party',
+      'g3.title':       'Confidential Addresses',
+      'g4.title':       'Grand Prix de Doha',
+      'g5.title':       'Private Dinner',
+      'g.cat.travel':   'Travel',
+      'g.cat.events':   'Events',
+      'g.cat.lifestyle':'Lifestyle',
+      // Experiences cards
+      'exp1.lbl': 'Private Dinner',
+      'exp2.lbl': 'Grand Prix',
+      'exp3.lbl': 'Exclusive Evening',
+      'exp4.lbl': 'Exceptional Stay',
+      'exp5.lbl': 'Exceptional Table',
+      'exp6.lbl': 'Fashion Week',
+      // Contact live + footer
+      'c.live':  'Available for private requests',
+      'ft.cats': 'Events · Tables · Lifestyle · Travel',
     }
   };
 

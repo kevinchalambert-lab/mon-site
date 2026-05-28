@@ -69,7 +69,9 @@ input, textarea, select { font-family: var(--sans); }
   text-transform: uppercase;
   color: rgba(255,255,255,.85);
   animation: pl-in 1.4s var(--ease) both;
+  transition: transform 1.2s var(--ease-s);
 }
+#preloader.off .pl-logo { transform: scale(1.22); }
 
 @keyframes pl-in {
   from { opacity: 0; letter-spacing: .28em; }
@@ -1018,13 +1020,13 @@ input, textarea, select { font-family: var(--sans); }
 .f-g label {
   font-size: .56rem; font-weight: 200;
   letter-spacing: .32em; text-transform: uppercase;
-  color: rgba(255,255,255,.25);
+  color: rgba(255,255,255,.58);
 }
 .f-g input,
 .f-g textarea,
 .f-g select {
   background: transparent; border: none;
-  border-bottom: 1px solid rgba(255,255,255,.08);
+  border-bottom: 1px solid rgba(255,255,255,.18);
   padding: 13px 0; color: #fff;
   font-size: .88rem; font-weight: 200;
   outline: none; -webkit-appearance: none; appearance: none;
@@ -1032,9 +1034,9 @@ input, textarea, select { font-family: var(--sans); }
 }
 .f-g input:focus,
 .f-g textarea:focus,
-.f-g select:focus { border-bottom-color: rgba(255,255,255,.4); }
+.f-g select:focus { border-bottom-color: rgba(255,255,255,.55); }
 .f-g input::placeholder,
-.f-g textarea::placeholder { color: rgba(255,255,255,.15); }
+.f-g textarea::placeholder { color: rgba(255,255,255,.32); }
 .f-g select option { background: var(--ink-soft); color: #fff; }
 .f-g textarea { resize: none; }
 
