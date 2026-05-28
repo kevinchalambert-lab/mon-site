@@ -238,11 +238,17 @@
         </div>
       </div>
 
+      <div id="form-success" style="display:none; text-align:center; padding:60px 0;">
+        <div style="width:32px;height:1px;background:rgba(245,240,230,.22);margin:0 auto 40px;"></div>
+        <p id="form-success-msg" style="font-family:var(--serif);font-size:clamp(1.1rem,2.2vw,1.55rem);font-weight:300;font-style:italic;line-height:1.65;color:#f5f0e6;max-width:520px;margin:0 auto 32px;">Votre demande a été confiée à nos équipes. Nous vous répondrons avec la plus grande discrétion sous 24 heures.</p>
+        <div style="width:32px;height:1px;background:rgba(245,240,230,.22);margin:0 auto;"></div>
+      </div>
+
       <form id="form-contact" class="contact-form reveal"
-            action="https://submit-form.com/form_v1_h3NaQ59z5lmbsAL2vtlnTSrv"
+            action="https://submit-form.com/17WH4ev1n"
             method="POST"
             novalidate>
-        <input type="hidden" name="_referrer" value="https://www.maisonchalambert.com/contact" />
+        <input type="hidden" name="_referrer" value="https://maisonchalambert.com/contact" />
         <input type="text" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off" />
 
         <div class="f-row">
@@ -368,8 +374,16 @@
     }
 
     /* ── Formspark ── */
-    const FORMSPARK = 'https://submit-form.com/form_v1_h3NaQ59z5lmbsAL2vtlnTSrv';
-    const form = document.getElementById('form-contact');
+    const FORMSPARK   = 'https://submit-form.com/17WH4ev1n';
+    const form        = document.getElementById('form-contact');
+    const formSuccess = document.getElementById('form-success');
+    const formSuccessMsg = document.getElementById('form-success-msg');
+
+    const SUCCESS_MSG = {
+      fr: 'Votre demande a été confiée à nos équipes. Nous vous répondrons avec la plus grande discrétion sous 24 heures.',
+      en: 'Your request has been entrusted to our teams. We will respond with complete discretion within 24 hours.'
+    };
+
     if (form) {
       form.addEventListener('submit', async e => {
         e.preventDefault();
@@ -377,6 +391,7 @@
         const btnSpan = btn ? btn.querySelector('span') : null;
         if (!btn || !btnSpan) return;
 
+        /* Validation minimale */
         const prenom = form.querySelector('[name="prenom"]')?.value.trim();
         const email  = form.querySelector('[name="email"]')?.value.trim();
         if (!prenom || !email) {
@@ -386,10 +401,11 @@
           return;
         }
 
+        /* État "en cours" */
         btn.disabled        = true;
-        const sendingText   = currentLang === 'en' ? '…' : '…';
-        btnSpan.textContent = sendingText;
+        btnSpan.textContent = currentLang === 'en' ? 'Sending…' : 'Transmission en cours…';
 
+        /* Construction du payload JSON */
         const data = {};
         new FormData(form).forEach((val, key) => { data[key] = val; });
 
@@ -399,20 +415,28 @@
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body:    JSON.stringify(data),
           });
+
           if (res.ok) {
-            btnSpan.textContent = currentLang === 'en' ? 'Message sent ✓' : 'Message envoyé ✓';
-            btn.style.opacity   = '.55';
-            form.reset();
+            /* Succès : cacher le formulaire, afficher le message */
+            form.style.transition  = 'opacity .6s';
+            form.style.opacity     = '0';
             setTimeout(() => {
-              btnSpan.textContent = T[currentLang]['f.send'];
-              btn.style.opacity   = '';
-              btn.disabled        = false;
-            }, 5000);
+              form.style.display = 'none';
+              if (formSuccess) {
+                if (formSuccessMsg) formSuccessMsg.textContent = SUCCESS_MSG[currentLang] || SUCCESS_MSG.fr;
+                formSuccess.style.display = 'block';
+                formSuccess.style.opacity = '0';
+                formSuccess.style.transition = 'opacity .8s';
+                requestAnimationFrame(() => requestAnimationFrame(() => {
+                  formSuccess.style.opacity = '1';
+                }));
+              }
+            }, 600);
           } else {
             throw new Error('HTTP ' + res.status);
           }
         } catch (err) {
-          console.error('Formspark:', err);
+          console.error('Formspark error:', err);
           btnSpan.textContent = currentLang === 'en' ? 'Error — please retry' : 'Erreur — réessayez';
           btn.disabled        = false;
           setTimeout(() => { btnSpan.textContent = T[currentLang]['f.send']; }, 3500);
