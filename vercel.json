@@ -1,9 +1,10 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/en",           "destination": "/index.html"  },
-    { "source": "/en/event",     "destination": "/event.html"  },
-    { "source": "/en/contact",   "destination": "/contact.html"},
-    { "source": "/en/tables",    "destination": "/tables.html" }
+    { "source": "/en",           "destination": "/index.html"     },
+    { "source": "/en/event",     "destination": "/event.html"     },
+    { "source": "/en/contact",   "destination": "/contact.html"   },
+    { "source": "/en/tables",    "destination": "/tables.html"    },
+    { "source": "/en/lifestyle", "destination": "/lifestyle.html" }
   ]
 }
