@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lifestyle d'Exception — Maison Chalambert</title>
-  <meta name="description" content="Maison Chalambert ouvre les portes des cercles inaccessibles — montée des marches à Cannes, paddocks de Monaco, front row Fashion Week, superyachts privés, Art Basel en avant-première." />
+  <title>Lifestyle Privilège Paris | Fashion Week, Grand Prix Monaco, Cannes, Boîtes de Nuit — Maison Chalambert</title>
+  <meta name="description" content="Accédez aux événements les plus exclusifs : Fashion Week Paris, Grand Prix Monaco VIP, Festival de Cannes, Art Basel, boîtes de nuit inaccessibles. Conciergerie lifestyle de luxe à Paris." />
+  <meta name="keywords" content="Fashion Week Paris accès, Grand Prix Monaco VIP, Festival Cannes accès, Art Basel VIP, boîte de nuit Paris réservation, nightclub Paris VIP, soirée VIP Paris, accès événement exclusif Paris, conciergerie lifestyle luxe" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://maisonchalambert.com/lifestyle" id="canonical-tag" />
   <link rel="alternate" hreflang="fr" href="https://maisonchalambert.com/lifestyle" />
@@ -12,8 +13,37 @@
 
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://maisonchalambert.com/lifestyle" />
-  <meta property="og:title"       content="Lifestyle d'Exception — Maison Chalambert" />
+  <meta property="og:title"       content="Lifestyle Privilège Paris | Fashion Week, Grand Prix Monaco, Cannes, Boîtes de Nuit — Maison Chalambert" />
+  <meta property="og:description" content="Accédez aux événements les plus exclusifs : Fashion Week Paris, Grand Prix Monaco VIP, Festival de Cannes, Art Basel, boîtes de nuit inaccessibles. Conciergerie lifestyle de luxe à Paris." />
   <meta property="og:image"       content="https://maisonchalambert.com/assets/images/grand-prix.jpg" />
+  <!-- ══ Twitter / X Card ══════════════════════════════════════════════ -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Lifestyle Privilège Paris | Fashion Week, Grand Prix Monaco, Cannes, Boîtes de Nuit — Maison Chalambert" />
+  <meta name="twitter:description" content="Accédez aux événements les plus exclusifs : Fashion Week Paris, Grand Prix Monaco VIP, Festival de Cannes, Art Basel, boîtes de nuit inaccessibles. Conciergerie lifestyle de luxe à Paris." />
+  <meta name="twitter:image"       content="https://maisonchalambert.com/assets/images/grand-prix.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Lifestyle Privilège",
+    "serviceType": "Accès événements exclusifs et lifestyle de luxe",
+    "description": "Accès aux événements les plus exclusifs au monde : Fashion Week Paris, Grand Prix de Monaco VIP, Festival de Cannes, Art Basel, boîtes de nuit inaccessibles et after-parties privées.",
+    "provider": { "@type": "ProfessionalService", "name": "Maison Chalambert", "url": "https://maisonchalambert.com", "telephone": "+33778253980" },
+    "areaServed": ["Paris", "Monaco", "Cannes", "Bâle", "Milan", "New York"],
+    "url": "https://maisonchalambert.com/lifestyle"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Maison Chalambert", "item": "https://maisonchalambert.com" },
+      { "@type": "ListItem", "position": 2, "name": "Lifestyle Privilège", "item": "https://maisonchalambert.com/lifestyle" }
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -378,6 +408,15 @@
       }
     };
 
+    const SEO_FR = {
+      title: "Lifestyle Privilège Paris | Fashion Week, Grand Prix Monaco, Cannes, Boîtes de Nuit — Maison Chalambert",
+      desc:  "Accédez aux événements les plus exclusifs : Fashion Week Paris, Grand Prix Monaco VIP, Festival de Cannes, Art Basel, boîtes de nuit inaccessibles. Conciergerie lifestyle de luxe."
+    };
+    const SEO_EN = {
+      title: "Luxury Lifestyle Paris | Fashion Week, Monaco Grand Prix, Cannes, Nightclub VIP — Maison Chalambert",
+      desc:  "Access the most exclusive events: Paris Fashion Week, Monaco Grand Prix VIP, Cannes Film Festival, Art Basel, inaccessible nightclubs. Luxury lifestyle concierge in Paris."
+    };
+
     let currentLang = window.location.pathname.startsWith('/en/') ? 'en' : 'fr';
 
     function applyLang(l) {
@@ -391,6 +430,8 @@
         if (v !== undefined) el.innerHTML = v;
       });
       document.getElementById('html-root').lang = l;
+      document.title = l === 'en' ? SEO_EN.title : SEO_FR.title;
+      document.querySelector('meta[name="description"]').content = l === 'en' ? SEO_EN.desc : SEO_FR.desc;
       const path = l === 'en' ? `/en${PAGE}` : PAGE;
       if (window.location.pathname !== path) history.pushState({ lang: l }, '', path);
       const can = document.getElementById('canonical-tag');
