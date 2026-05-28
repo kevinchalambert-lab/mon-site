@@ -299,11 +299,19 @@
 
   /* ══════════════════════════════════════════════
      FORM SUBMIT — AJAX vers Formspark (sans redirection)
-     Envoi en arrière-plan, le client reste sur la page.
+     Envoi JSON en arrière-plan, le client reste sur la page.
   ══════════════════════════════════════════════ */
-  const FORMSPARK = 'https://submit-form.com/form_v1_h3NaQ59z5lmbsAL2vtlnTSrv';
+  const FORMSPARK = 'https://submit-form.com/17WH4ev1n';
 
-  const form = document.getElementById('form');
+  const FORM_SUCCESS_MSG = {
+    fr: 'Votre demande a été confiée à nos équipes. Nous vous répondrons avec la plus grande discrétion sous 24 heures.',
+    en: 'Your request has been entrusted to our teams. We will respond with complete discretion within 24 hours.'
+  };
+
+  const form        = document.getElementById('form');
+  const formSuccess = document.getElementById('form-success');
+  const formSuccessMsg = document.getElementById('form-success-msg');
+
   if (form) {
     form.addEventListener('submit', async e => {
       e.preventDefault();
@@ -323,28 +331,33 @@
       }
 
       btn.disabled        = true;
-      btnSpan.textContent = '…';
+      btnSpan.textContent = currentLang === 'en' ? 'Sending…' : 'Transmission en cours…';
 
-      // URLSearchParams = requête "simple" CORS, aucun preflight bloquant
-      const params = new URLSearchParams();
-      new FormData(form).forEach((val, key) => params.append(key, val));
+      const data = {};
+      new FormData(form).forEach((val, key) => { data[key] = val; });
 
       try {
         const res = await fetch(FORMSPARK, {
           method:  'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body:    params.toString(),
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body:    JSON.stringify(data),
         });
 
         if (res.ok) {
-          btnSpan.textContent = currentLang === 'en' ? 'Message sent ✓' : 'Message envoyé ✓';
-          btn.style.opacity   = '.55';
-          form.reset();
+          form.style.transition = 'opacity .6s';
+          form.style.opacity    = '0';
           setTimeout(() => {
-            btnSpan.textContent = currentLang === 'en' ? 'Send' : 'Envoyer';
-            btn.style.opacity   = '';
-            btn.disabled        = false;
-          }, 5000);
+            form.style.display = 'none';
+            if (formSuccess) {
+              if (formSuccessMsg) formSuccessMsg.textContent = FORM_SUCCESS_MSG[currentLang] || FORM_SUCCESS_MSG.fr;
+              formSuccess.style.display    = 'block';
+              formSuccess.style.opacity    = '0';
+              formSuccess.style.transition = 'opacity .8s';
+              requestAnimationFrame(() => requestAnimationFrame(() => {
+                formSuccess.style.opacity = '1';
+              }));
+            }
+          }, 600);
         } else {
           throw new Error('HTTP ' + res.status);
         }
@@ -471,6 +484,8 @@
       'f.opt2':  "Tables d'Exception",
       'f.opt3':  'Lifestyle',
       'f.opt4':  'Voyages Sur-Mesure',
+      'f.opt5':  'Presse / Partenariat',
+      'f.opt6':  'Autres demandes',
       // Mobile nav
       'nav.contact': 'Contact',
       // Galerie
@@ -552,6 +567,8 @@
       'f.opt2':  'Exceptional Tables',
       'f.opt3':  'Lifestyle',
       'f.opt4':  'Bespoke Travel',
+      'f.opt5':  'Press / Partnership',
+      'f.opt6':  'Other requests',
       // Mobile nav
       'nav.contact': 'Contact',
       // Gallery
