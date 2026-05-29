@@ -524,6 +524,13 @@
       'exp4.lbl': "Séjour d'exception",
       'exp5.lbl': "Table d'exception",
       'exp6.lbl': 'Fashion Week',
+      // Newsletter
+      'nl.label': 'Newsletter',
+      'nl.ph':    'votre@email.com',
+      'nl.btn':   "S'inscrire",
+      'nl.ok':    'Vous rejoignez Maison Chalambert. Bienvenue.',
+      'nl.wait':  'Inscription…',
+      'nl.err':   'Erreur — réessayez',
       // Contact live + footer
       'c.live':  'Disponible pour demandes privées',
       'ft.cats': 'Événements · Tables · Lifestyle · Voyages',
@@ -607,6 +614,13 @@
       'exp4.lbl': 'Exceptional Stay',
       'exp5.lbl': 'Exceptional Table',
       'exp6.lbl': 'Fashion Week',
+      // Newsletter
+      'nl.label': 'Newsletter',
+      'nl.ph':    'your@email.com',
+      'nl.btn':   'Subscribe',
+      'nl.ok':    'You are joining Maison Chalambert. Welcome.',
+      'nl.wait':  'Subscribing…',
+      'nl.err':   'Error — please retry',
       // Contact live + footer
       'c.live':  'Available for private requests',
       'ft.cats': 'Events · Tables · Lifestyle · Travel',
@@ -811,6 +825,66 @@
     gOverflow.addEventListener('touchend', () => snapNearest());
 
     updateGNav();
+  }
+
+  /* ══════════════════════════════════════════════
+     NEWSLETTER — inscription via /api/newsletter
+  ══════════════════════════════════════════════ */
+  const formNl    = document.getElementById('form-nl');
+  const nlRow     = document.getElementById('nl-row');
+  const nlEmail   = document.getElementById('nl-email');
+  const nlBtnTxt  = document.getElementById('nl-btn-txt');
+  const nlSuccess = document.getElementById('nl-success');
+  const RE_EMAIL_NL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  if (formNl) {
+    formNl.addEventListener('submit', async e => {
+      e.preventDefault();
+      if (!nlEmail || !nlBtnTxt) return;
+
+      const email = nlEmail.value.trim();
+
+      // Validation email
+      if (!RE_EMAIL_NL.test(email)) {
+        nlRow && nlRow.classList.add('nl-invalid');
+        nlEmail.addEventListener('input', () => nlRow && nlRow.classList.remove('nl-invalid'), { once: true });
+        return;
+      }
+
+      nlBtnTxt.textContent = T[currentLang]['nl.wait'] || 'Inscription…';
+      formNl.querySelector('.nl-btn').disabled = true;
+
+      try {
+        const res = await fetch('/api/newsletter', {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify({ email }),
+        });
+
+        if (res.ok) {
+          // Succès : masquer le champ, afficher confirmation
+          nlRow && (nlRow.style.display = 'none');
+          if (nlSuccess) {
+            nlSuccess.textContent = T[currentLang]['nl.ok'] || 'Vous rejoignez Maison Chalambert. Bienvenue.';
+            nlSuccess.style.display = 'block';
+            nlSuccess.style.opacity = '0';
+            nlSuccess.style.transition = 'opacity .7s';
+            requestAnimationFrame(() => requestAnimationFrame(() => {
+              nlSuccess.style.opacity = '1';
+            }));
+          }
+        } else {
+          throw new Error('HTTP ' + res.status);
+        }
+      } catch (err) {
+        console.error('Newsletter:', err);
+        nlBtnTxt.textContent = T[currentLang]['nl.err'] || 'Erreur — réessayez';
+        formNl.querySelector('.nl-btn').disabled = false;
+        setTimeout(() => {
+          nlBtnTxt.textContent = T[currentLang]['nl.btn'] || "S'inscrire";
+        }, 3500);
+      }
+    });
   }
 
 })();

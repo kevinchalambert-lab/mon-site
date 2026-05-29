@@ -506,10 +506,26 @@
           <span class="cs-dot">·</span>
           <a href="https://www.linkedin.com/company/luxeandtravel/?originalSubdomain=fr" class="cs-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
-        <!-- Disponibilité live -->
-        <div class="c-live reveal">
-          <span class="live-dot"></span>
-          <span data-i18n="c.live">Disponible pour demandes privées</span>
+        <!-- Newsletter -->
+        <div class="c-newsletter reveal">
+          <p class="nl-label" data-i18n="nl.label">Newsletter</p>
+          <form id="form-nl" class="nl-form" novalidate>
+            <div class="nl-row" id="nl-row">
+              <input type="email" name="email" id="nl-email"
+                     data-i18n-ph="nl.ph"
+                     placeholder="votre@email.com"
+                     autocomplete="email" />
+              <button type="submit" class="nl-btn" id="nl-btn">
+                <span id="nl-btn-txt" data-i18n="nl.btn">S'inscrire</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+            <p id="nl-success" class="nl-success" style="display:none" data-i18n="nl.ok">
+              Vous rejoignez Maison Chalambert. Bienvenue.
+            </p>
+          </form>
         </div>
       </div>
 

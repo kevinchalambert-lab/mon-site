@@ -222,9 +222,26 @@
           <a href="https://www.linkedin.com/company/luxeandtravel/?originalSubdomain=fr"
              class="cs-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
-        <div class="c-live reveal" style="--d:360ms">
-          <span class="live-dot"></span>
-          <span data-i18n="ct.live">Disponible pour demandes privées</span>
+        <!-- Newsletter -->
+        <div class="c-newsletter reveal" style="--d:360ms">
+          <p class="nl-label" data-i18n="nl.label">Newsletter</p>
+          <form id="form-nl" class="nl-form" novalidate>
+            <div class="nl-row" id="nl-row">
+              <input type="email" name="email" id="nl-email"
+                     data-i18n-ph="nl.ph"
+                     placeholder="votre@email.com"
+                     autocomplete="email" />
+              <button type="submit" class="nl-btn" id="nl-btn">
+                <span id="nl-btn-txt" data-i18n="nl.btn">S'inscrire</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+            <p id="nl-success" class="nl-success" style="display:none" data-i18n="nl.ok">
+              Vous rejoignez Maison Chalambert. Bienvenue.
+            </p>
+          </form>
         </div>
 
         <div class="ct-info-block reveal" style="--d:420ms">
@@ -492,6 +509,9 @@
         'ct.subtitle': 'Imaginer votre<br /><em>expérience avec nous.</em>',
         'ct.body':     'Une demande confidentielle, une envie précise ou une occasion à célébrer. Nous vous répondons avec discrétion sous 24h.',
         'ct.live':     'Disponible pour demandes privées',
+        'nl.label': 'Newsletter', 'nl.ph': 'votre@email.com',
+        'nl.btn': "S'inscrire", 'nl.ok': 'Vous rejoignez Maison Chalambert. Bienvenue.',
+        'nl.wait': 'Inscription…', 'nl.err': 'Erreur — réessayez',
         'ct.coords':   'Coordonnées',
         'f.prenom': 'Prénom', 'f.nom': 'Nom', 'f.email': 'Email',
         'f.tel': 'Téléphone', 'f.univers': 'Univers', 'f.message': 'Votre demande',
@@ -510,6 +530,9 @@
         'ct.subtitle': 'Imagine your<br /><em>experience with us.</em>',
         'ct.body':     'A confidential inquiry, a precise desire or an occasion to celebrate. We respond with absolute discretion within 24 hours.',
         'ct.live':     'Available for private requests',
+        'nl.label': 'Newsletter', 'nl.ph': 'your@email.com',
+        'nl.btn': 'Subscribe', 'nl.ok': 'You are joining Maison Chalambert. Welcome.',
+        'nl.wait': 'Subscribing…', 'nl.err': 'Error — please retry',
         'ct.coords':   'Contact Details',
         'f.prenom': 'First Name', 'f.nom': 'Last Name', 'f.email': 'Email',
         'f.tel': 'Phone', 'f.univers': 'Universe', 'f.message': 'Your request',
@@ -562,6 +585,49 @@
     }));
     window.addEventListener('popstate', e => applyLang(e.state?.lang ?? (window.location.pathname.startsWith('/en') ? 'en' : 'fr')));
     applyLang(currentLang);
+
+    /* ── Newsletter ── */
+    const formNl    = document.getElementById('form-nl');
+    const nlRow     = document.getElementById('nl-row');
+    const nlEmail   = document.getElementById('nl-email');
+    const nlBtnTxt  = document.getElementById('nl-btn-txt');
+    const nlSuccess = document.getElementById('nl-success');
+    const RE_NL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    if (formNl) {
+      formNl.addEventListener('submit', async e => {
+        e.preventDefault();
+        const email = nlEmail?.value.trim() || '';
+        if (!RE_NL.test(email)) {
+          nlRow?.classList.add('nl-invalid');
+          nlEmail?.addEventListener('input', () => nlRow?.classList.remove('nl-invalid'), { once: true });
+          return;
+        }
+        if (nlBtnTxt) nlBtnTxt.textContent = T[currentLang]['nl.wait'];
+        const btn = formNl.querySelector('.nl-btn');
+        if (btn) btn.disabled = true;
+        try {
+          const res = await fetch('/api/newsletter', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email }),
+          });
+          if (res.ok) {
+            if (nlRow) nlRow.style.display = 'none';
+            if (nlSuccess) {
+              nlSuccess.textContent = T[currentLang]['nl.ok'];
+              nlSuccess.style.display = 'block';
+              nlSuccess.style.opacity = '0';
+              nlSuccess.style.transition = 'opacity .7s';
+              requestAnimationFrame(() => requestAnimationFrame(() => { nlSuccess.style.opacity = '1'; }));
+            }
+          } else { throw new Error('HTTP ' + res.status); }
+        } catch (err) {
+          if (nlBtnTxt) nlBtnTxt.textContent = T[currentLang]['nl.err'];
+          if (btn) btn.disabled = false;
+          setTimeout(() => { if (nlBtnTxt) nlBtnTxt.textContent = T[currentLang]['nl.btn']; }, 3500);
+        }
+      });
+    }
   })();
   </script>
 
