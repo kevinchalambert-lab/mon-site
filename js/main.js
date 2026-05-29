@@ -851,7 +851,7 @@
         return;
       }
 
-      nlBtnTxt.textContent = T[currentLang]['nl.wait'] || 'Inscription…';
+      nlBtnTxt.textContent = i18n[currentLang]['nl.wait'] || 'Inscription…';
       formNl.querySelector('.nl-btn').disabled = true;
 
       try {
@@ -865,7 +865,7 @@
           // Succès : masquer le champ, afficher confirmation
           nlRow && (nlRow.style.display = 'none');
           if (nlSuccess) {
-            nlSuccess.textContent = T[currentLang]['nl.ok'] || 'Vous rejoignez Maison Chalambert. Bienvenue.';
+            nlSuccess.textContent = i18n[currentLang]['nl.ok'] || 'Vous rejoignez Maison Chalambert. Bienvenue.';
             nlSuccess.style.display = 'block';
             nlSuccess.style.opacity = '0';
             nlSuccess.style.transition = 'opacity .7s';
@@ -878,10 +878,10 @@
         }
       } catch (err) {
         console.error('Newsletter:', err);
-        nlBtnTxt.textContent = T[currentLang]['nl.err'] || 'Erreur — réessayez';
+        nlBtnTxt.textContent = i18n[currentLang]['nl.err'] || 'Erreur — réessayez';
         formNl.querySelector('.nl-btn').disabled = false;
         setTimeout(() => {
-          nlBtnTxt.textContent = T[currentLang]['nl.btn'] || "S'inscrire";
+          nlBtnTxt.textContent = i18n[currentLang]['nl.btn'] || "S'inscrire";
         }, 3500);
       }
     });
