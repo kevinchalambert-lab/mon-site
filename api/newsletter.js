@@ -1,64 +1,78 @@
-// api/newsletter.js — Vercel Serverless Function
-// Reçoit un email, l'ajoute à la liste Brevo de Maison Chalambert
-// Variables d'environnement à configurer sur Vercel :
-//   BREVO_API_KEY  → clé API Brevo (Paramètres → Clés API → Créer)
-//   BREVO_LIST_ID  → ID de ta liste contacts (ex: 2)
+// api/newsletter.js — Vercel Serverless Function (CommonJS)
+const https = require('https');
 
-export default async function handler(req, res) {
-  // CORS — autoriser uniquement depuis le site
-  res.setHeader('Access-Control-Allow-Origin', 'https://maisonchalambert.com');
+module.exports = async function handler(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') return res.status(200).end();
-  if (req.method !== 'POST')    return res.status(405).json({ error: 'Méthode non autorisée' });
+  if (req.method !== 'POST')    return res.status(405).json({ error: 'Methode non autorisee' });
 
   const { email } = req.body || {};
   const RE_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-  if (!email || !RE_EMAIL.test(email.trim())) {
-    return res.status(400).json({ error: 'Adresse email invalide' });
+  if (!email || !RE_EMAIL.test(String(email).trim())) {
+    return res.status(400).json({ error: 'Email invalide' });
   }
 
   const BREVO_API_KEY = process.env.BREVO_API_KEY;
   const BREVO_LIST_ID = parseInt(process.env.BREVO_LIST_ID || '2', 10);
 
   if (!BREVO_API_KEY) {
-    console.error('BREVO_API_KEY manquante');
-    return res.status(500).json({ error: 'Configuration serveur manquante' });
+    return res.status(500).json({ error: 'Config manquante' });
   }
 
-  try {
-    const brevoRes = await fetch('https://api.brevo.com/v3/contacts', {
-      method: 'POST',
+  const payload = JSON.stringify({
+    email:         String(email).trim().toLowerCase(),
+    listIds:       [BREVO_LIST_ID],
+    updateEnabled: true,
+  });
+
+  return new Promise((resolve) => {
+    const options = {
+      hostname: 'api.brevo.com',
+      path:     '/v3/contacts',
+      method:   'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'api-key': BREVO_API_KEY,
+        'Content-Type':   'application/json',
+        'Accept':         'application/json',
+        'api-key':        BREVO_API_KEY,
+        'Content-Length': Buffer.byteLength(payload),
       },
-      body: JSON.stringify({
-        email:         email.trim().toLowerCase(),
-        listIds:       [BREVO_LIST_ID],
-        updateEnabled: true,   // si le contact existe déjà → pas d'erreur
-      }),
+    };
+
+    const reqBrevo = https.request(options, (resBrevo) => {
+      let body = '';
+      resBrevo.on('data', (chunk) => { body += chunk; });
+      resBrevo.on('end', () => {
+        const status = resBrevo.statusCode;
+        // 201 = nouveau contact créé, 204 = mis à jour
+        if (status === 201 || status === 204) {
+          res.status(200).json({ success: true });
+          return resolve();
+        }
+        // Contact déjà dans la liste → succès silencieux
+        try {
+          const data = JSON.parse(body);
+          if (data.code === 'duplicate_parameter') {
+            res.status(200).json({ success: true });
+            return resolve();
+          }
+        } catch (_) {}
+        console.error('Brevo error', status, body);
+        res.status(500).json({ error: 'Erreur Brevo ' + status });
+        resolve();
+      });
     });
 
-    // 201 = nouveau contact, 204 = contact mis à jour → les deux = succès
-    if (brevoRes.status === 201 || brevoRes.status === 204) {
-      return res.status(200).json({ success: true });
-    }
+    reqBrevo.on('error', (err) => {
+      console.error('HTTPS error:', err);
+      res.status(500).json({ error: 'Erreur reseau' });
+      resolve();
+    });
 
-    const data = await brevoRes.json().catch(() => ({}));
-
-    // Code "duplicate_parameter" = contact déjà dans la liste → succès silencieux
-    if (data.code === 'duplicate_parameter') {
-      return res.status(200).json({ success: true });
-    }
-
-    console.error('Brevo erreur:', brevoRes.status, data);
-    return res.status(500).json({ error: 'Erreur Brevo' });
-
-  } catch (err) {
-    console.error('Newsletter handler error:', err);
-    return res.status(500).json({ error: 'Erreur serveur' });
-  }
-}
+    reqBrevo.write(payload);
+    reqBrevo.end();
+  });
+};
