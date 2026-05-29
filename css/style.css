@@ -965,7 +965,7 @@ input, textarea, select { font-family: var(--sans); }
 .c-label {
   font-size: .6rem; font-weight: 200;
   letter-spacing: .42em; text-transform: uppercase;
-  color: rgba(255,255,255,.24);
+  color: rgba(255,255,255,.45);
   margin-bottom: 32px;
 }
 
@@ -980,7 +980,7 @@ input, textarea, select { font-family: var(--sans); }
 
 .c-sub {
   font-size: .88rem; font-weight: 200;
-  line-height: 1.88; color: rgba(255,255,255,.38);
+  line-height: 1.88; color: rgba(255,255,255,.60);
   margin-bottom: 40px;
   max-width: 440px;
 }
@@ -1000,12 +1000,12 @@ input, textarea, select { font-family: var(--sans); }
   display: flex; align-items: center; gap: 16px;
   font-size: .66rem; font-weight: 200;
   letter-spacing: .22em; text-transform: uppercase;
-  color: rgba(255,255,255,.22);
+  color: rgba(255,255,255,.44);
   margin-bottom: 32px;
 }
 .cs-link { transition: color .3s; }
-.cs-link:hover { color: rgba(255,255,255,.68); }
-.cs-dot { opacity: .28; }
+.cs-link:hover { color: rgba(255,255,255,.75); }
+.cs-dot { opacity: .38; }
 
 .c-live {
   display: inline-flex; align-items: center; gap: 10px;
@@ -1021,7 +1021,7 @@ input, textarea, select { font-family: var(--sans); }
 .nl-label {
   font-size: .56rem; font-weight: 200;
   letter-spacing: .32em; text-transform: uppercase;
-  color: rgba(255,255,255,.38);
+  color: rgba(255,255,255,.52);
   margin: 0 0 14px;
 }
 .nl-form { width: 100%; }
@@ -1155,26 +1155,36 @@ input, textarea, select { font-family: var(--sans); }
 .ft-name {
   font-size: .66rem; font-weight: 200;
   letter-spacing: .38em;
-  color: rgba(255,255,255,.32);
+  color: rgba(255,255,255,.55);
+  text-decoration: none;
+  transition: color .3s; cursor: pointer;
 }
+.ft-name:hover { color: rgba(255,255,255,.88); }
 .ft-cats {
+  display: flex; align-items: center; gap: 0;
   font-size: .6rem; font-weight: 200;
   letter-spacing: .14em;
-  color: rgba(255,255,255,.18);
 }
+.ft-cats a {
+  color: rgba(255,255,255,.45);
+  text-decoration: none;
+  transition: color .3s;
+}
+.ft-cats a:hover { color: rgba(255,255,255,.78); }
+.ft-sep { color: rgba(255,255,255,.22); }
 .ft-links {
   display: flex; gap: 28px;
 }
 .ft-links a {
   font-size: .56rem; font-weight: 200;
   letter-spacing: .2em; text-transform: uppercase;
-  color: rgba(255,255,255,.18);
+  color: rgba(255,255,255,.42);
   transition: color .3s;
 }
-.ft-links a:hover { color: rgba(255,255,255,.58); }
+.ft-links a:hover { color: rgba(255,255,255,.72); }
 .ft-copy {
   font-size: .56rem; font-weight: 200;
-  color: rgba(255,255,255,.14);
+  color: rgba(255,255,255,.32);
 }
 
 
