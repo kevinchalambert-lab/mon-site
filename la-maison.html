@@ -94,10 +94,19 @@
 
     /* ── Section Manifeste ────────────────── */
     .lm-manifesto {
-      background: var(--ink);
+      background: var(--cream);
       padding: 160px 80px;
-      border-top: 1px solid var(--border-d);
+      border-top: 1px solid rgba(10,9,8,.07);
     }
+    /* Inversions couleurs sur fond clair */
+    .lm-manifesto .lm-m-label   { color: rgba(10,9,8,.38); }
+    .lm-manifesto .lm-m-rule    { background: rgba(10,9,8,.10); }
+    .lm-manifesto .lm-m-nav-item{ color: rgba(10,9,8,.30); }
+    .lm-manifesto .lm-m-intro   { color: rgba(10,9,8,.80); }
+    .lm-manifesto .lm-pillar    { border-top-color: rgba(10,9,8,.07); }
+    .lm-manifesto .lm-pillar-n  { color: rgba(10,9,8,.09); }
+    .lm-manifesto .lm-pillar-title { color: rgba(10,9,8,.52); }
+    .lm-manifesto .lm-pillar-text  { color: rgba(10,9,8,.52); }
     .lm-manifesto-inner {
       max-width: 1200px; margin: 0 auto;
       display: grid; grid-template-columns: 1fr 2fr; gap: 120px;
@@ -177,11 +186,11 @@
 
     /* Photo */
     .lm-photo-col {
-      position: sticky; top: 0;
-      height: 100vh;
+      position: sticky; top: 80px;
+      height: 65vh; min-height: 480px; max-height: 680px;
     }
     .lm-photo-wrap {
-      position: relative; height: 100vh;
+      position: relative; height: 65vh; min-height: 480px; max-height: 680px;
       overflow: hidden;
     }
     .lm-photo-img {
@@ -306,23 +315,23 @@
 
     /* ── CTA bas de page ─────────────────── */
     .lm-cta {
-      background: var(--ink);
+      background: var(--cream);
       padding: 120px 80px;
-      border-top: 1px solid var(--border-d);
+      border-top: 1px solid rgba(10,9,8,.07);
       text-align: center;
     }
     .lm-cta-label {
       font-family: var(--sans);
       font-size: .54rem; font-weight: 200;
       letter-spacing: .4em; text-transform: uppercase;
-      color: rgba(245,240,230,.3);
+      color: rgba(10,9,8,.38);
       margin-bottom: 32px;
     }
     .lm-cta-title {
       font-family: var(--serif); font-style: italic;
       font-size: clamp(1.8rem, 3.5vw, 3rem);
       font-weight: 300; line-height: 1.2;
-      color: #f5f0e6;
+      color: rgba(10,9,8,.82);
       margin-bottom: 52px;
     }
     .lm-cta-btn {
@@ -330,20 +339,20 @@
       font-family: var(--sans);
       font-size: .64rem; font-weight: 300;
       letter-spacing: .28em; text-transform: uppercase;
-      color: var(--ink); background: rgba(224,216,204,.92);
+      color: var(--cream); background: rgba(10,9,8,.84);
       padding: 20px 52px;
       text-decoration: none;
       transition: background .35s, transform .35s;
     }
-    .lm-cta-btn:hover { background: var(--cream); transform: translateY(-2px); }
+    .lm-cta-btn:hover { background: var(--ink); transform: translateY(-2px); }
     .lm-cta-btn svg { transition: transform .35s; }
     .lm-cta-btn:hover svg { transform: translateX(5px); }
 
     /* ── Responsive ──────────────────────── */
     @media (max-width: 1060px) {
       .lm-founder-inner { grid-template-columns: 1fr; }
-      .lm-photo-col { position: relative; height: 75vh; }
-      .lm-photo-wrap { height: 75vh; }
+      .lm-photo-col { position: relative; height: 55vh; min-height: 360px; max-height: none; top: 0; }
+      .lm-photo-wrap { height: 55vh; min-height: 360px; max-height: none; }
       .lm-text-col { padding: 80px 40px; }
       .lm-manifesto-inner { grid-template-columns: 1fr; gap: 64px; }
       .lm-m-left { position: static; }
@@ -355,12 +364,12 @@
       .lm-pillar { grid-template-columns: 48px 1fr; gap: 0 24px; }
       .lm-text-col { padding: 64px 28px; }
       .lm-cta { padding: 80px 28px; }
-      .lm-photo-col { height: 65vh; }
-      .lm-photo-wrap { height: 65vh; }
+      .lm-photo-col { height: 52vw; min-height: 280px; }
+      .lm-photo-wrap { height: 52vw; min-height: 280px; }
     }
     @media (max-width: 500px) {
-      .lm-photo-col { height: 100vw; }
-      .lm-photo-wrap { height: 100vw; }
+      .lm-photo-col { height: 90vw; min-height: 240px; }
+      .lm-photo-wrap { height: 90vw; min-height: 240px; }
       .lm-f-title { font-size: clamp(1.7rem, 8vw, 2.4rem); }
     }
   </style>
@@ -409,7 +418,7 @@
         L'Art de<br /><em>l'Hospitalité</em>
       </h1>
       <p class="lm-hero-sub reveal" data-i18n="lm.sub">
-        Passionnés et entourés des meilleurs dans chaque univers. Une vision où chaque détail compte, où l'élégance rencontre l'audace.
+        Une maison bâtie sur la confiance. Un carnet d'adresses forgé dans l'ombre. Une obsession absolue du détail.
       </p>
     </div>
   </section>
@@ -502,13 +511,13 @@
         </h2>
 
         <div class="lm-f-body">
-          <p class="lm-f-p reveal" style="--d:160ms" data-i18n="lm.f.p1">
+          <p class="lm-f-p reveal" style="--d:160ms" data-i18n-html="lm.f.p1">
             Avant Maison Chalambert, il y a eu les coulisses. Formé dans les institutions qui définissent l'excellence — <strong>Chanel</strong>, puis <strong>Paris Society</strong> — Kevin Chalambert a compris une chose que l'argent seul ne peut pas acheter : l'appartenance. Ce sentiment rare d'être exactement là où tout se décide, avant même que ça ne commence.
           </p>
-          <p class="lm-f-p reveal" style="--d:220ms" data-i18n="lm.f.p2">
+          <p class="lm-f-p reveal" style="--d:220ms" data-i18n-html="lm.f.p2">
             De ces années est née une <strong>obsession silencieuse du détail absolu</strong> — et un carnet d'adresses forgé dans la confiance, jamais dans l'ostentation. Des initiés, des alliances rares, des accès qui n'existent pas sur une liste d'attente. Des portes qui s'ouvrent non pas parce qu'on frappe, mais parce qu'on est reconnu.
           </p>
-          <p class="lm-f-p reveal" style="--d:280ms" data-i18n="lm.f.p3">
+          <p class="lm-f-p reveal" style="--d:280ms" data-i18n-html="lm.f.p3">
             Maison Chalambert est la synthèse de ce parcours : un refus de la médiocrité habillée en luxe, une exigence permanente d'aller chercher <strong>ce qui ne se trouve pas</strong> — et la capacité rare de le livrer, en toute discrétion.
           </p>
         </div>
@@ -516,7 +525,7 @@
         <div class="lm-f-divider reveal" style="--d:320ms"></div>
 
         <div class="lm-quote-block reveal" style="--d:380ms">
-          <p class="lm-quote" data-i18n="lm.f.quote">
+          <p class="lm-quote" data-i18n-html="lm.f.quote">
             « Il y a ce qui se réserve.<br />Et il y a ce qui se mérite.<br />Maison Chalambert existe dans l'espace entre les deux. »
           </p>
           <span class="lm-signature" data-i18n="lm.f.sign">— Kevin Chalambert</span>
@@ -586,7 +595,7 @@
         'nav.cta': 'Demande Privée', 'nav.contact': 'Contact',
         'lm.kicker':   '— La Maison',
         'lm.title':    "L'Art de<br /><em>l'Hospitalité</em>",
-        'lm.sub':      "Passionnés et entourés des meilleurs dans chaque univers. Une vision où chaque détail compte, où l'élégance rencontre l'audace.",
+        'lm.sub':      "Une maison bâtie sur la confiance. Un carnet d'adresses forgé dans l'ombre. Une obsession absolue du détail.",
         'lm.m.label':  '— Notre Vision',
         'lm.m.intro':  "Passionnés et entourés des meilleurs dans chaque univers. Une vision où chaque détail compte, où l'élégance rencontre l'audace — pour vous offrir bien plus qu'une expérience : une émotion.",
         'p1.title': 'Personnalisation', 'p2.title': 'Inaccessible', 'p3.title': 'Orchestration', 'p4.title': 'Émotion',
@@ -612,7 +621,7 @@
         'nav.cta': 'Private Request', 'nav.contact': 'Contact',
         'lm.kicker':   '— The House',
         'lm.title':    "The Art of<br /><em>Hospitality</em>",
-        'lm.sub':      "Passionate and surrounded by the best in every field. A vision where every detail matters, where elegance meets boldness.",
+        'lm.sub':      "A house built on trust. An address book forged in the shadows. An absolute obsession for detail.",
         'lm.m.label':  '— Our Vision',
         'lm.m.intro':  "Passionate and surrounded by the best in every field. A vision where every detail matters, where elegance meets boldness — to offer you far more than an experience: an emotion.",
         'p1.title': 'Personalisation', 'p2.title': 'Inaccessible', 'p3.title': 'Orchestration', 'p4.title': 'Emotion',

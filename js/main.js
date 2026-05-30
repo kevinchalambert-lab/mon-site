@@ -18,15 +18,30 @@
 
   /* ══════════════════════════════════════════════
      PRELOADER — logo seul, disparaît après 2.4s
+     • Affiché uniquement à la première ouverture
+       du site (nouveau tab) OU au refresh (F5)
+     • Ignoré lors de la navigation inter-pages
   ══════════════════════════════════════════════ */
-  const preloader = document.getElementById('preloader');
-  document.body.style.overflow = 'hidden';
+  const preloader  = document.getElementById('preloader');
+  const _navType   = performance?.getEntriesByType?.('navigation')?.[0]?.type;
+  const _isReload  = _navType === 'reload';
+  const _isFirst   = !sessionStorage.getItem('mc-visited');
+  const _showPL    = preloader && (_isFirst || _isReload);
 
-  setTimeout(() => {
-    preloader.classList.add('off');
-    document.body.style.overflow = '';
-    setTimeout(initHeroEntrance, 400);
-  }, 2600);
+  /* Marquer la session comme visitée (ne réinitialise pas au refresh) */
+  if (_isFirst) sessionStorage.setItem('mc-visited', '1');
+
+  if (_showPL) {
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => {
+      preloader.classList.add('off');
+      document.body.style.overflow = '';
+      setTimeout(initHeroEntrance, 400);
+    }, 2600);
+  } else {
+    if (preloader) preloader.style.display = 'none';
+    setTimeout(initHeroEntrance, 80);
+  }
 
   /* ══════════════════════════════════════════════
      HERO ENTRANCE — bottom-left staggered
