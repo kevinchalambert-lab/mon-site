@@ -6,7 +6,6 @@
     { "source": "/en/contact",   "destination": "/contact.html"   },
     { "source": "/en/tables",    "destination": "/tables.html"    },
     { "source": "/en/lifestyle", "destination": "/lifestyle.html" },
-    { "source": "/en/voyages",   "destination": "/voyages.html"   },
-    { "source": "/en/la-maison", "destination": "/la-maison.html" }
+    { "source": "/en/voyages",   "destination": "/voyages.html"   }
   ]
 }
