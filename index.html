@@ -136,7 +136,7 @@
         <span class="ls-sep">|</span>
         <button class="ls-btn" data-set-lang="en">EN</button>
       </div>
-      <a href="#contact" class="n-cta" data-i18n="nav.cta">Demande Privée</a>
+      <a href="/contact" class="n-cta" data-i18n="nav.cta">Demande Privée</a>
     </div>
     <!-- Mobile -->
     <a href="#hero" class="n-logo-mobile">MAISON CHALAMBERT</a>
@@ -489,6 +489,7 @@
   <section id="contact">
     <div class="contact-wrap">
 
+      <!-- Titre + description -->
       <div class="contact-left">
         <p class="c-label reveal" data-i18n="c.label">— Demande Privée</p>
         <h2 class="c-title reveal" data-i18n-html="c.title">
@@ -498,35 +499,6 @@
           Une demande confidentielle, une envie précise ou une
           occasion à célébrer. Nous vous répondons avec discrétion sous 24h.
         </p>
-        <a href="mailto:contact@maisonchalambert.com" class="c-email reveal">
-          contact@maisonchalambert.com
-        </a>
-        <div class="c-socials reveal">
-          <a href="#" class="cs-link">Instagram</a>
-          <span class="cs-dot">·</span>
-          <a href="https://www.linkedin.com/company/luxeandtravel/?originalSubdomain=fr" class="cs-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </div>
-        <!-- Newsletter -->
-        <div class="c-newsletter reveal">
-          <p class="nl-label" data-i18n="nl.label">Newsletter</p>
-          <form id="form-nl" class="nl-form" novalidate>
-            <div class="nl-row" id="nl-row">
-              <input type="email" name="email" id="nl-email"
-                     data-i18n-ph="nl.ph"
-                     placeholder="votre@email.com"
-                     autocomplete="email" />
-              <button type="submit" class="nl-btn" id="nl-btn">
-                <span id="nl-btn-txt" data-i18n="nl.btn">S'inscrire</span>
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
-            </div>
-            <p id="nl-success" class="nl-success" style="display:none" data-i18n="nl.ok">
-              Vous rejoignez Maison Chalambert. Bienvenue.
-            </p>
-          </form>
-        </div>
       </div>
 
       <!-- ══ Formspark ── collez votre Form ID à la place de VOTRE_FORM_ID ══════
@@ -583,6 +555,39 @@
         <div style="width:32px;height:1px;background:rgba(245,240,230,.22);margin:0 auto 40px;"></div>
         <p id="form-success-msg" style="font-family:var(--serif);font-size:clamp(1.1rem,2.2vw,1.55rem);font-weight:300;font-style:italic;line-height:1.65;color:#f5f0e6;max-width:520px;margin:0 auto 32px;">Votre demande a été confiée à nos équipes. Nous vous répondrons avec la plus grande discrétion sous 24 heures.</p>
         <div style="width:32px;height:1px;background:rgba(245,240,230,.22);margin:0 auto;"></div>
+      </div>
+
+      <!-- Email + socials + newsletter (desktop: col 1 row 2 / mobile: après formulaire) -->
+      <div class="contact-meta">
+        <a href="mailto:contact@maisonchalambert.com" class="c-email reveal">
+          contact@maisonchalambert.com
+        </a>
+        <div class="c-socials reveal">
+          <a href="#" class="cs-link">Instagram</a>
+          <span class="cs-dot">·</span>
+          <a href="https://www.linkedin.com/company/luxeandtravel/?originalSubdomain=fr" class="cs-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+        <!-- Newsletter -->
+        <div class="c-newsletter reveal">
+          <p class="nl-label" data-i18n="nl.label">Newsletter</p>
+          <form id="form-nl" class="nl-form" novalidate>
+            <div class="nl-row" id="nl-row">
+              <input type="email" name="email" id="nl-email"
+                     data-i18n-ph="nl.ph"
+                     placeholder="votre@email.com"
+                     autocomplete="email" />
+              <button type="submit" class="nl-btn" id="nl-btn">
+                <span id="nl-btn-txt" data-i18n="nl.btn">S'inscrire</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+            <p id="nl-success" class="nl-success" style="display:none" data-i18n="nl.ok">
+              Vous rejoignez Maison Chalambert. Bienvenue.
+            </p>
+          </form>
+        </div>
       </div>
 
     </div>

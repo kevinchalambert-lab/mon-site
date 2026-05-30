@@ -961,6 +961,16 @@ input, textarea, select { font-family: var(--sans); }
   margin: 0 auto;
   align-items: start;
 }
+/* Desktop : contact-meta reste dans la colonne gauche, sous le titre */
+.contact-meta {
+  grid-column: 1;
+  grid-row: 2;
+}
+/* Desktop : form-success reste dans la colonne droite */
+#form-success {
+  grid-column: 2;
+  grid-row: 2;
+}
 
 .c-label {
   font-size: .6rem; font-weight: 200;
@@ -1270,7 +1280,10 @@ input, textarea, select { font-family: var(--sans); }
   .gn-next { right: 4px; }
 
   #contact { padding: 120px 28px; }
-  .contact-wrap { grid-template-columns: 1fr; gap: 60px; }
+  .contact-wrap { grid-template-columns: 1fr; gap: 48px; }
+  /* Mobile : reset explicit grid placement → empilement naturel */
+  .contact-meta { grid-column: 1; grid-row: auto; }
+  #form-success  { grid-column: 1; grid-row: auto; }
   .f-row { grid-template-columns: 1fr; }
 
   #footer .ft-bottom { padding: 24px 28px; flex-direction: column; align-items: flex-start; gap: 14px; }
