@@ -484,13 +484,13 @@
       'u3.desc':  "Accès Fashion Week, Grand Prix de Monaco, Festival de Cannes, vernissages privés, premières exclusives. Les coulisses du monde vous appartiennent.",
       'u4.title': 'Voyages<br />Sur-Mesure',
       'u4.desc':  "Villas privées, yachts, jets privés, safaris en lodge exclusif. Des itinéraires dessinés pour votre seule signature, dans des destinations choisies pour leur âme.",
-      'u.link':   'Nous consulter →',
+      'u.link':   'En savoir plus →',
       // Editorial
       'ed.quote': '"Il existe des portes que d\'autres<br />n\'ont jamais su frapper."',
       // La Maison
       'm.label':  '— La Maison',
       'm.title':  "L'Art de<br /><em>l'Hospitalité</em>",
-      'm.intro':  "Passionnés et entourés des meilleurs dans chaque univers. Une vision où chaque détail compte, où l'élégance rencontre l'audace — pour vous offrir bien plus qu'une expérience : une émotion.",
+      'm.intro':  "Ni agence, ni plateforme. Un réseau d'initiés construit dans l'ombre, au fil des années. Quelques clients à la fois — parce que ce que nous faisons ne s'industrialise pas.",
       'p1.title': 'Personnalisation',
       'p1.desc':  "Parce que vous êtes unique, chaque expérience est dessinée sur-mesure. Nous écoutons vos silences et anticipons vos désirs pour façonner un moment qui ne ressemble qu'à vous.",
       'p2.title': 'Inaccessible',
@@ -574,13 +574,13 @@
       'u3.desc':  "Fashion Week access, Monaco Grand Prix, Cannes Film Festival, private openings, exclusive premieres. The world backstage belongs to you.",
       'u4.title': 'Bespoke<br />Travel',
       'u4.desc':  "Private villas, yachts, private jets, exclusive lodge safaris. Itineraries crafted for your signature alone, in destinations chosen for their soul.",
-      'u.link':   'Enquire →',
+      'u.link':   'Learn more →',
       // Editorial
       'ed.quote': '"There are doors that others<br />have never known how to knock on."',
       // La Maison
       'm.label':  '— The House',
       'm.title':  "The Art of<br /><em>Hospitality</em>",
-      'm.intro':  "Passionate and surrounded by the best in every field. A vision where every detail matters, where elegance meets boldness — to offer you far more than an experience: an emotion.",
+      'm.intro':  "Not an agency, not a platform. A network of insiders built over the years, in the shadows. A handful of clients at a time — because what we do cannot be scaled.",
       'p1.title': 'Personalisation',
       'p1.desc':  "Because you are unique, every experience is crafted to measure. We listen to your silences and anticipate your desires to shape a moment that resembles only you.",
       'p2.title': 'Inaccessible',
