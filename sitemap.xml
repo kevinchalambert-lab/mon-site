@@ -128,6 +128,25 @@
     <priority>0.75</priority>
   </url>
 
+  <url>
+    <loc>https://maisonchalambert.com/blog/tendances-voyage-luxe</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://maisonchalambert.com/blog/rimowa-globe-trotter-bagages-luxe</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://maisonchalambert.com/blog/fashion-week-paris</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
   <!-- ══ Contact ══════════════════════════════════════ -->
   <url>
     <loc>https://maisonchalambert.com/contact</loc>
