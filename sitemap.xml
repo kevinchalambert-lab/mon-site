@@ -102,6 +102,32 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- ══ Blog / Le Journal ════════════════════════════ -->
+  <url>
+    <loc>https://maisonchalambert.com/blog</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://maisonchalambert.com/blog/tables-inaccessibles-paris</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://maisonchalambert.com/blog/grand-prix-monaco</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://maisonchalambert.com/blog/conciergerie-luxe-paris</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
   <!-- ══ Contact ══════════════════════════════════════ -->
   <url>
     <loc>https://maisonchalambert.com/contact</loc>
