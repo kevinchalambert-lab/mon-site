@@ -6,6 +6,8 @@
     { "source": "/en/contact",   "destination": "/contact.html"   },
     { "source": "/en/tables",    "destination": "/tables.html"    },
     { "source": "/en/lifestyle", "destination": "/lifestyle.html" },
-    { "source": "/en/voyages",   "destination": "/voyages.html"   }
+    { "source": "/en/voyages",   "destination": "/voyages.html"   },
+    { "source": "/intelligence", "destination": "https://mister-city.vercel.app/intelligence" },
+    { "source": "/intelligence/:path*", "destination": "https://mister-city.vercel.app/intelligence/:path*" }
   ]
 }

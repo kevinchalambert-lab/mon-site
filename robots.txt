@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /intelligence/admin
+Disallow: /intelligence/api
 
 Sitemap: https://maisonchalambert.com/sitemap.xml
+Sitemap: https://maisonchalambert.com/intelligence/sitemap.xml
