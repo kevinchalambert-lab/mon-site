@@ -1,13 +1,78 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/en",           "destination": "/index.html"     },
-    { "source": "/en/event",     "destination": "/event.html"     },
-    { "source": "/en/contact",   "destination": "/contact.html"   },
-    { "source": "/en/tables",    "destination": "/tables.html"    },
-    { "source": "/en/lifestyle", "destination": "/lifestyle.html" },
-    { "source": "/en/voyages",   "destination": "/voyages.html"   },
-    { "source": "/intelligence", "destination": "https://mister-city.vercel.app/intelligence" },
-    { "source": "/intelligence/:path*", "destination": "https://mister-city.vercel.app/intelligence/:path*" }
+    {
+      "source": "/en",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/en/event",
+      "destination": "/event.html"
+    },
+    {
+      "source": "/en/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/en/tables",
+      "destination": "/tables.html"
+    },
+    {
+      "source": "/en/lifestyle",
+      "destination": "/lifestyle.html"
+    },
+    {
+      "source": "/en/voyages",
+      "destination": "/voyages.html"
+    },
+    {
+      "source": "/intelligence",
+      "destination": "https://mister-city.vercel.app/intelligence"
+    },
+    {
+      "source": "/intelligence/:path*",
+      "destination": "https://mister-city.vercel.app/intelligence/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
+    },
+    {
+      "source": "/(css|js)/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
+      ]
+    }
   ]
 }

@@ -3,5 +3,5 @@ Allow: /
 Disallow: /intelligence/admin
 Disallow: /intelligence/api
 
-Sitemap: https://maisonchalambert.com/sitemap.xml
-Sitemap: https://maisonchalambert.com/intelligence/sitemap.xml
+Sitemap: https://www.maisonchalambert.com/sitemap.xml
+Sitemap: https://www.maisonchalambert.com/intelligence/sitemap.xml

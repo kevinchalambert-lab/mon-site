@@ -549,6 +549,8 @@
       // Contact live + footer
       'c.live':  'Disponible pour demandes privées',
       'ft.cats': 'Événements · Tables · Lifestyle · Voyages',
+      'ft.b2b.label': 'Pour les entreprises',
+      'ft.b2b.link': 'Découvrir notre conciergerie IA',
     },
     en: {
       // Nav
@@ -639,6 +641,8 @@
       // Contact live + footer
       'c.live':  'Available for private requests',
       'ft.cats': 'Events · Tables · Lifestyle · Travel',
+      'ft.b2b.label': 'For businesses',
+      'ft.b2b.link': 'Discover our AI concierge',
     }
   };
 
@@ -678,6 +682,11 @@
     if (liveTxt) { liveTxt.textContent = ''; }
     liveTimer = setTimeout(typeLive, 600);
 
+    // Language-specific links (e.g. the AI concierge footer link)
+    document.querySelectorAll('[data-href-' + lang + ']').forEach(el => {
+      el.setAttribute('href', el.getAttribute('data-href-' + lang));
+    });
+
     // Lang buttons
     document.querySelectorAll('.ls-btn').forEach(btn => {
       btn.classList.toggle('active', btn.getAttribute('data-set-lang') === lang);
@@ -696,8 +705,8 @@
     const canonical = document.getElementById('canonical-tag');
     if (canonical) {
       canonical.href = lang === 'en'
-        ? 'https://maisonchalambert.com/en'
-        : 'https://maisonchalambert.com/';
+        ? 'https://www.maisonchalambert.com/en'
+        : 'https://www.maisonchalambert.com/';
     }
   }
 

@@ -1156,6 +1156,29 @@ input, textarea, select { font-family: var(--sans); }
   to   { transform: translateX(-50%); }
 }
 
+/* Pour les entreprises : lien vers Maison Chalambert Intelligence */
+.ft-b2b {
+  display: flex; align-items: baseline; flex-wrap: wrap;
+  gap: 8px 22px;
+  padding: 26px 56px;
+  border-bottom: 1px solid var(--border-d);
+}
+.ft-b2b-label {
+  font-size: .56rem; font-weight: 200;
+  letter-spacing: .34em; text-transform: uppercase;
+  color: rgba(255,255,255,.32);
+}
+.ft-b2b-link {
+  font-size: .7rem; font-weight: 300;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: rgba(255,255,255,.78);
+  border-bottom: 1px solid rgba(255,255,255,.22);
+  padding-bottom: 3px;
+  transition: color .3s, border-color .3s;
+}
+.ft-b2b-link::after { content: " \2192"; }
+.ft-b2b-link:hover { color: #fff; border-color: rgba(255,255,255,.6); }
+
 .ft-bottom {
   display: flex; align-items: center;
   justify-content: space-between;
@@ -1287,6 +1310,7 @@ input, textarea, select { font-family: var(--sans); }
   .f-row { grid-template-columns: 1fr; }
 
   #footer .ft-bottom { padding: 24px 28px; flex-direction: column; align-items: flex-start; gap: 14px; }
+  .ft-b2b { padding: 22px 28px; }
   .ft-cats { display: none; }
 }
 
