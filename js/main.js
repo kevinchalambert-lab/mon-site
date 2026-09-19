@@ -466,6 +466,10 @@
       'nav.maison':  'La Maison',
       'nav.galerie': 'Galerie',
       'nav.cta':     'Demande Privée',
+      'nav.ev':      'Événements Privés',
+      'nav.tb':      "Tables d'Exception",
+      'nav.lf':      'Lifestyle Privilège',
+      'nav.vy':      'Voyages Sur-Mesure',
       // Hero
       'hero.l1':  "L'Art de",
       'hero.l2':  "l'Inaccessible",
@@ -558,6 +562,10 @@
       'nav.maison':  'The House',
       'nav.galerie': 'Gallery',
       'nav.cta':     'Private Request',
+      'nav.ev':      'Private Events',
+      'nav.tb':      'Exceptional Tables',
+      'nav.lf':      'Lifestyle Privilege',
+      'nav.vy':      'Bespoke Travel',
       // Hero
       'hero.l1':  'The Art of',
       'hero.l2':  'the Inaccessible',

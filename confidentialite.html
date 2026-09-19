@@ -117,25 +117,39 @@
   <!-- ══ NAVIGATION ════════════════════════════ -->
   <header id="nav" class="solid">
     <div class="nav-left">
-      <a href="index.html#univers" class="n-link">Nos Univers</a>
-      <a href="index.html#maison" class="n-link">La Maison</a>
+      <div class="n-drop">
+        <a href="/#univers" class="n-link n-drop-trigger" aria-haspopup="true" aria-expanded="false">Nos Univers</a>
+        <div class="n-menu" role="menu">
+        <a href="/event" role="menuitem" data-i18n="nav.ev">Événements Privés</a>
+        <a href="/tables" role="menuitem" data-i18n="nav.tb">Tables d'Exception</a>
+        <a href="/lifestyle" role="menuitem" data-i18n="nav.lf">Lifestyle Privilège</a>
+        <a href="/voyages" role="menuitem" data-i18n="nav.vy">Voyages Sur-Mesure</a>
+        </div>
+      </div>
+      <a href="/#maison" class="n-link">La Maison</a>
     </div>
-    <a href="index.html" class="n-logo">MAISON CHALAMBERT</a>
+    <a href="/" class="n-logo">MAISON CHALAMBERT</a>
     <div class="nav-right">
-      <a href="index.html#galerie" class="n-link">Galerie</a>
-      <a href="index.html#contact" class="n-cta">Demande Privée</a>
+      <a href="/#galerie" class="n-link">Galerie</a>
+      <a href="/#contact" class="n-cta">Demande Privée</a>
     </div>
-    <a href="index.html" class="n-logo-mobile">MAISON CHALAMBERT</a>
+    <a href="/" class="n-logo-mobile">MAISON CHALAMBERT</a>
     <button id="burger" aria-label="Menu">
       <span></span><span></span>
     </button>
   </header>
 
   <div id="nav-overlay">
-    <a href="index.html#univers" class="no-link">Nos Univers</a>
-    <a href="index.html#maison" class="no-link">La Maison</a>
-    <a href="index.html#galerie" class="no-link">Galerie</a>
-    <a href="index.html#contact" class="no-link">Contact</a>
+    <a href="/#univers" class="no-link">Nos Univers</a>
+    <div class="no-sub">
+      <a href="/event" class="no-sub-link" data-i18n="nav.ev">Événements Privés</a>
+      <a href="/tables" class="no-sub-link" data-i18n="nav.tb">Tables d'Exception</a>
+      <a href="/lifestyle" class="no-sub-link" data-i18n="nav.lf">Lifestyle Privilège</a>
+      <a href="/voyages" class="no-sub-link" data-i18n="nav.vy">Voyages Sur-Mesure</a>
+    </div>
+    <a href="/#maison" class="no-link">La Maison</a>
+    <a href="/#galerie" class="no-link">Galerie</a>
+    <a href="/#contact" class="no-link">Contact</a>
   </div>
 
   <!-- ══ CONTENU ══════════════════════════════ -->
@@ -281,5 +295,6 @@
       });
     }
   </script>
+<script src="/js/nav-menu.js" defer></script>
 </body>
 </html>

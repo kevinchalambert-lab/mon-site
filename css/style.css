@@ -134,6 +134,36 @@ input, textarea, select { font-family: var(--sans); }
 .n-link:hover { color: rgba(255,255,255,.9); }
 .n-link:hover::after { width: 100%; }
 
+/* Menu déroulant « Nos Univers » */
+.n-drop { position: relative; display: inline-flex; align-items: center; }
+/* Zone de survol qui relie le lien au menu : évite que le menu se referme en le rejoignant */
+.n-drop::after {
+  content: ''; position: absolute; left: -24px; right: -24px; top: 100%; height: 34px;
+}
+.n-menu {
+  position: absolute; top: calc(100% + 26px); left: -28px;
+  min-width: 268px; padding: 14px 0;
+  background: rgba(10,9,8,.96);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border-d);
+  opacity: 0; visibility: hidden; transform: translateY(8px);
+  transition: opacity .45s var(--ease), transform .55s var(--ease), visibility .45s;
+  z-index: 1100;
+}
+.n-drop:hover .n-menu,
+.n-drop:focus-within .n-menu,
+.n-drop.open .n-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.n-menu a {
+  display: block; padding: 13px 30px;
+  font-size: .64rem; font-weight: 300;
+  letter-spacing: .26em; text-transform: uppercase;
+  color: rgba(255,255,255,.6); white-space: nowrap;
+  transition: color .3s, background .3s, padding-left .45s var(--ease);
+}
+.n-menu a:hover, .n-menu a:focus-visible {
+  color: #fff; background: rgba(255,255,255,.045); padding-left: 38px; outline: none;
+}
+
 /* Logo centré — Paris Society style */
 .n-logo {
   position: absolute; left: 50%; transform: translateX(-50%);
@@ -215,6 +245,17 @@ input, textarea, select { font-family: var(--sans); }
   transition: opacity .3s, transform .3s;
 }
 .no-link:hover { opacity: .35; transform: translateX(6px); }
+.no-sub {
+  display: flex; flex-direction: column; align-items: center; gap: 14px;
+  margin-top: -34px;
+}
+.no-sub-link {
+  font-size: .68rem; font-weight: 300;
+  letter-spacing: .3em; text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+  transition: color .3s;
+}
+.no-sub-link:hover { color: rgba(255,255,255,.9); }
 
 
 /* ══════════════════════════════════════════════════
